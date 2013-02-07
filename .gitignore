@@ -1,5 +1,6 @@
 # Object files
 *.o
+.DS_Store
 
 # Libraries
 *.lib
