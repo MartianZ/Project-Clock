@@ -1,5 +1,7 @@
 LED Matrix Clock
 ================
+----
+
 ###Details:
 
 1. MCU: STC12C5A60S2
@@ -12,6 +14,4 @@ LED Matrix Clock
 
 **Code in the DynamicLyrics project is licensed under the MIT License.**
 
-----
-
-Copyright (C) 2013 MartianZ
+Copyright (C) 2013 [MartianZ](http://MartianZ.cn)
