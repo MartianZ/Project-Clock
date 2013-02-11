@@ -366,6 +366,11 @@
               <FileType>1</FileType>
               <FilePath>.\delay.c</FilePath>
             </File>
+            <File>
+              <FileName>EEPROM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\EEPROM.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

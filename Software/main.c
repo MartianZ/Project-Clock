@@ -46,6 +46,8 @@ code unsigned char code_9_1[7] = {0x0, 0x4, 0x4, 0x0, 0x1C, 0x1C, 0x10};
 code unsigned char code_dot_1[7] = {0x1F, 0x13, 0x13, 0x1F, 0x13, 0x13, 0x1F};
 code unsigned char code_dot_2[7] = {0x1F, 0x1F, 0x13, 0x13, 0x13, 0x1F, 0x1F};
 code unsigned char code_dot_3[7] = {0x1F, 0x1F, 0x1F, 0x13, 0x1F, 0x1F, 0x1F};
+
+
 code unsigned char code_num[][7] = {{0x0, 0x4, 0x4, 0x4, 0x4, 0x4, 0x0}, {0x19, 0x19, 0x19, 0x19, 0x19, 0x19, 0x19}, {0x10, 0x1C, 0x1C, 0x0, 0x7, 0x7, 0x0},
 		  {0x0, 0x1C, 0x1C, 0x10, 0x1C, 0x1C, 0x0}, {0x4, 0x4, 0x4, 0x0, 0x1C, 0x1C, 0x1C}, {0x1, 0x7, 0x7, 0x0, 0x1C, 0x1C, 0x0}, {0x1, 0x7, 0x7, 0x0, 0x4, 0x4, 0x0}, {0x0, 0x1C, 0x1C, 0x1C, 0x1C, 0x1C, 0x1C},
 		  {0x0, 0x4, 0x4, 0x0, 0x4, 0x4, 0x0}, {0x0, 0x4, 0x4, 0x0, 0x1C, 0x1C, 0x10}};   
@@ -79,7 +81,10 @@ code unsigned char code_rr[7] = {0x1F, 0x1F, 0xC, 0xB, 0x7, 0xF, 0xF};
 code unsigned char code_F[7] = {0x0, 0xF, 0xF, 0x0, 0xF, 0xF, 0xF};
 code unsigned char code_ii[7] = {0x1F, 0x1F, 0x1B, 0x1F, 0x1B, 0x1B, 0x1B};
 code unsigned char code_tt[7] = {0x1F, 0x1F, 0x1F, 0x1B, 0x0, 0x1B, 0x18};
-  
+code unsigned char code_A[7] = {0x1B, 0x15, 0xE, 0x0, 0xE, 0xE, 0xE};
+code unsigned char code_L[7] = {0xF, 0xF, 0xF, 0xF, 0xF, 0xF, 0x0};
+code unsigned char code_R[7] = {0x1, 0xE, 0xE, 0x1, 0xB, 0xD, 0xE};
+ 
    
 
 void Timer0Init(void)
@@ -209,6 +214,7 @@ unsigned char getWeek(unsigned int YYYY, unsigned char MON, unsigned char DAY)
 void main()
 {	
 	unsigned char i,HH,MM,SS,MON,DAY,m1 = 0,m2 = 0,mode,dynamic = 0,is24 = 0, enableBEEP = 1,WEEK;
+	unsigned char enableAlarm = 0, Alarm_HH = 0, Alarm_MM = 0;
 	unsigned int YYYY,w,ww = 0;
 
 
@@ -226,8 +232,12 @@ void main()
 	P0 = 0xFF;
 	BEEP = 1;
 
+
 	is24 = IapReadByte(0);
 	enableBEEP = IapReadByte(1);
+	enableAlarm = IapReadByte(512);
+	Alarm_HH = IapReadByte(513);
+	Alarm_MM = IapReadByte(514);
 
 	for (i=0; i<30; i++)
 	{
@@ -258,22 +268,25 @@ void main()
 
 		if (menu1 == 0 && menu2 == 0)
 		{	
+			if ((enableAlarm == 1) && (HH == Alarm_HH) && (BCD_DEC(MM) == Alarm_MM)) BEEP = 0;
 			if (!is24)
 			{
+				
 				if (HH >= 12)
 				{
-					if (HH > 12) HH -= 12;
-					Display6(code_pp, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 0x0F],0);
+					Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 0x0F],0);
 					if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
-					Display6(code_pp, code_num[HH / 10], code_num[HH % 10], code_dot_2, code_num[MM >> 4], code_num[MM & 0x0F],0);
+					Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_2, code_num[MM >> 4], code_num[MM & 0x0F],0);
 					if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
-					Display6(code_pp, code_num[HH / 10], code_num[HH % 10], code_dot_3, code_num[MM >> 4], code_num[MM & 0x0F],0);
+					Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_3, code_num[MM >> 4], code_num[MM & 0x0F],0);
 					if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
-					Display6(code_pp, code_num[HH / 10], code_num[HH % 10], code_dot_2, code_num[MM >> 4], code_num[MM & 0x0F],0);
+					Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_2, code_num[MM >> 4], code_num[MM & 0x0F],0);
 					if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
-					Display6(code_pp, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 0x0F],0);
+					Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 0x0F],0);
+					BEEP = 1;
 			   	
 				} else {
+
 					Display6(code_aa, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 0x0F],0);
 					if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
 					Display6(code_aa, code_num[HH / 10], code_num[HH % 10], code_dot_2, code_num[MM >> 4], code_num[MM & 0x0F],0);
@@ -295,6 +308,7 @@ void main()
 				if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
 				Display6(code_dark, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 0x0F],0);	
 			}
+			BEEP = 1;
 
 		} 
 		else if (menu1)
@@ -470,9 +484,72 @@ void main()
 					BEEP = 1;	
 				}	
 			}
-			
 
-			if (mode > 8) 
+			if (mode == 9)
+			{
+				if (enableAlarm)
+				{
+					Display6(code_A, code_L, code_R, code_M, code_colon, code_num[1], dynamic);
+				} else {
+					Display6(code_A, code_L, code_R, code_M, code_colon, code_num[0], dynamic);																			   
+				}
+				dynamic = 0;
+				Delay10ms();
+				if (menu2 != m2)
+				{
+					if (enableBEEP) BEEP = 0;
+					Delayx10ms(7);
+					m2 = menu2;	
+					if(enableAlarm) enableAlarm = 0; else enableAlarm = 1;
+					IapEraseSector(512);
+					IapProgramByte(512, enableAlarm);
+					IapProgramByte(513, Alarm_HH);
+					IapProgramByte(514, Alarm_MM);					
+					BEEP = 1;
+				}
+			}
+			
+			if (mode == 10)
+			{
+				Display6(code_A, code_H, code_H, code_colon, code_num[Alarm_HH / 10], code_num[Alarm_HH % 10], dynamic);
+				dynamic = 0;
+				Delay10ms();
+				if (menu2 != m2)
+				{
+					if (enableBEEP) BEEP = 0;
+					Delayx10ms(7);
+					m2 = menu2;
+					if (++Alarm_HH > 23) Alarm_HH = 0;
+					IapEraseSector(512);
+					IapProgramByte(512, enableAlarm);
+					IapProgramByte(513, Alarm_HH);
+					IapProgramByte(514, Alarm_MM);
+					BEEP = 1;	
+
+				} 
+			}
+
+			if (mode == 11)
+			{
+				Display6(code_A, code_M, code_M, code_colon, code_num[Alarm_MM / 10], code_num[Alarm_MM % 10], dynamic);
+				dynamic = 0;
+				Delay10ms();
+				if (menu2 != m2)
+				{
+					if (enableBEEP) BEEP = 0;
+					Delayx10ms(7);
+					m2 = menu2;
+					if (++Alarm_MM > 59) Alarm_MM = 0;
+					IapEraseSector(512);
+					IapProgramByte(512, enableAlarm);
+					IapProgramByte(513, Alarm_HH);
+					IapProgramByte(514, Alarm_MM);
+					BEEP = 1;	
+
+				} 
+			}
+
+			if (mode > 11) 
 			{
 				menu1 = 0;
 				menu2 = 0;
