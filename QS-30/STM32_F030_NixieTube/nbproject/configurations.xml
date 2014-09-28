@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="89">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="STM32_C8">
+      <df name="inc">
+        <in>delay.h</in>
+        <in>ds1302.h</in>
+        <in>nixietube.h</in>
+        <in>pid.h</in>
+        <in>stm32f0xx_it.h</in>
+      </df>
+      <df name="lib">
+        <df name="inc">
+          <df name="core">
+            <in>core_cm0.h</in>
+            <in>core_cm3.h</in>
+            <in>stm32f0xx.h</in>
+          </df>
+          <df name="peripherals">
+            <in>misc.h</in>
+          </df>
+        </df>
+        <df name="src">
+          <df name="core">
+            <in>system_stm32f0xx.c</in>
+          </df>
+          <df name="peripherals">
+            <in>stm32f0xx_adc.c</in>
+            <in>stm32f0xx_can.c</in>
+            <in>stm32f0xx_cec.c</in>
+            <in>stm32f0xx_comp.c</in>
+            <in>stm32f0xx_crc.c</in>
+            <in>stm32f0xx_crs.c</in>
+            <in>stm32f0xx_dac.c</in>
+            <in>stm32f0xx_dbgmcu.c</in>
+            <in>stm32f0xx_dma.c</in>
+            <in>stm32f0xx_exti.c</in>
+            <in>stm32f0xx_flash.c</in>
+            <in>stm32f0xx_gpio.c</in>
+            <in>stm32f0xx_i2c.c</in>
+            <in>stm32f0xx_iwdg.c</in>
+            <in>stm32f0xx_misc.c</in>
+            <in>stm32f0xx_pwr.c</in>
+            <in>stm32f0xx_rcc.c</in>
+            <in>stm32f0xx_rtc.c</in>
+            <in>stm32f0xx_spi.c</in>
+            <in>stm32f0xx_syscfg.c</in>
+            <in>stm32f0xx_tim.c</in>
+            <in>stm32f0xx_usart.c</in>
+            <in>stm32f0xx_wwdg.c</in>
+          </df>
+        </df>
+        <in>startup_stm32f030.s</in>
+      </df>
+      <df name="src">
+        <in>delay.c</in>
+        <in>ds1302.c</in>
+        <in>main.c</in>
+        <in>nixietube.c</in>
+        <in>pid.c</in>
+        <in>stm32f0xx_it.c</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="重要文件"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU-SAT|GNU</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>main.elf</executablePath>
+          <cTool>
+            <incDir>
+              <pElem>inc</pElem>
+              <pElem>lib</pElem>
+              <pElem>lib/inc</pElem>
+              <pElem>lib/inc/core</pElem>
+              <pElem>lib/inc/peripherals</pElem>
+              <pElem>.</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>STM32F10X_MD=1</Elem>
+              <Elem>USE_STDPERIPH_DRIVER=1</Elem>
+            </preprocessorList>
+          </cTool>
+        </makeTool>
+      </makefileType>
+      <item path="inc/delay.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ds1302.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/nixietube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/pid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/stm32f0xx_it.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/core/core_cm0.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/core/core_cm3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/core/stm32f0xx.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/misc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/src/core/system_stm32f0xx.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_adc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_can.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_cec.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_comp.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_crc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_crs.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_dac.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_dbgmcu.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_dma.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_exti.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_flash.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_gpio.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_i2c.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_iwdg.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_misc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_pwr.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_rcc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_rtc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_spi.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_syscfg.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_tim.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_usart.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f0xx_wwdg.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/startup_stm32f030.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="src/delay.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/ds1302.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/nixietube.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/pid.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/stm32f0xx_it.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

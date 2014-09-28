@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="89">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="STM32_C8">
+      <df name="inc">
+        <in>delay.h</in>
+        <in>ds1302.h</in>
+        <in>nixietube.h</in>
+        <in>pid.h</in>
+        <in>stm32f0xx_it.h</in>
+      </df>
+      <df name="lib">
+        <df name="inc">
+          <df name="core">
+            <in>arm_common_tables.h</in>
+            <in>arm_const_structs.h</in>
+            <in>arm_math.h</in>
+            <in>core_cm0.h</in>
+            <in>core_cm0plus.h</in>
+            <in>core_cm3.h</in>
+            <in>core_cm4.h</in>
+            <in>core_cm4_simd.h</in>
+            <in>core_cmFunc.h</in>
+            <in>core_cmInstr.h</in>
+            <in>core_sc000.h</in>
+            <in>core_sc300.h</in>
+            <in>stm32f0xx.h</in>
+            <in>system_stm32f0xx.h</in>
+          </df>
+          <df name="peripherals">
+            <in>misc.h</in>
+            <in>stm32f0xx_adc.h</in>
+            <in>stm32f0xx_can.h</in>
+            <in>stm32f0xx_cec.h</in>
+            <in>stm32f0xx_comp.h</in>
+            <in>stm32f0xx_crc.h</in>
+            <in>stm32f0xx_crs.h</in>
+            <in>stm32f0xx_dac.h</in>
+            <in>stm32f0xx_dbgmcu.h</in>
+            <in>stm32f0xx_dma.h</in>
+            <in>stm32f0xx_exti.h</in>
+            <in>stm32f0xx_flash.h</in>
+            <in>stm32f0xx_gpio.h</in>
+            <in>stm32f0xx_i2c.h</in>
+            <in>stm32f0xx_iwdg.h</in>
+            <in>stm32f0xx_misc.h</in>
+            <in>stm32f0xx_pwr.h</in>
+            <in>stm32f0xx_rcc.h</in>
+            <in>stm32f0xx_rtc.h</in>
+            <in>stm32f0xx_spi.h</in>
+            <in>stm32f0xx_syscfg.h</in>
+            <in>stm32f0xx_tim.h</in>
+            <in>stm32f0xx_usart.h</in>
+            <in>stm32f0xx_wwdg.h</in>
+          </df>
+          <in>stm32f0xx_conf.h</in>
+        </df>
+        <df name="src">
+          <df name="core">
+            <in>system_stm32f0xx.c</in>
+          </df>
+          <df name="peripherals">
+            <in>stm32f0xx_adc.c</in>
+            <in>stm32f0xx_can.c</in>
+            <in>stm32f0xx_cec.c</in>
+            <in>stm32f0xx_comp.c</in>
+            <in>stm32f0xx_crc.c</in>
+            <in>stm32f0xx_crs.c</in>
+            <in>stm32f0xx_dac.c</in>
+            <in>stm32f0xx_dbgmcu.c</in>
+            <in>stm32f0xx_dma.c</in>
+            <in>stm32f0xx_exti.c</in>
+            <in>stm32f0xx_flash.c</in>
+            <in>stm32f0xx_gpio.c</in>
+            <in>stm32f0xx_i2c.c</in>
+            <in>stm32f0xx_iwdg.c</in>
+            <in>stm32f0xx_misc.c</in>
+            <in>stm32f0xx_pwr.c</in>
+            <in>stm32f0xx_rcc.c</in>
+            <in>stm32f0xx_rtc.c</in>
+            <in>stm32f0xx_spi.c</in>
+            <in>stm32f0xx_syscfg.c</in>
+            <in>stm32f0xx_tim.c</in>
+            <in>stm32f0xx_usart.c</in>
+            <in>stm32f0xx_wwdg.c</in>
+          </df>
+        </df>
+        <in>startup_stm32f030.s</in>
+        <in>startup_stm32f0xx.s</in>
+        <in>startup_stm32f10x_hd.s</in>
+        <in>startup_stm32f10x_ld.s</in>
+        <in>startup_stm32f10x_md.s</in>
+      </df>
+      <df name="src">
+        <in>delay.c</in>
+        <in>ds1302.c</in>
+        <in>main.c</in>
+        <in>nixietube.c</in>
+        <in>pid.c</in>
+        <in>stm32f0xx_it.c</in>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>
