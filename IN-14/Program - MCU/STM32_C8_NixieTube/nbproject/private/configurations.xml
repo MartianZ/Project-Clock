@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="89">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="STM32_C8">
+      <df name="inc">
+        <in>battery_adc.h</in>
+        <in>delay.h</in>
+        <in>ds3231.h</in>
+        <in>flash.h</in>
+        <in>hw_config.h</in>
+        <in>nixietube.h</in>
+        <in>platform_config.h</in>
+        <in>stm32f10x_conf.h</in>
+        <in>stm32f10x_it.h</in>
+        <in>usart.h</in>
+        <in>usb_conf.h</in>
+        <in>usb_desc.h</in>
+        <in>usb_istr.h</in>
+        <in>usb_prop.h</in>
+        <in>usb_pwr.h</in>
+      </df>
+      <df name="lib">
+        <df name="inc">
+          <df name="core">
+            <in>core_cm3.h</in>
+            <in>stm32f10x.h</in>
+            <in>system_stm32f10x.h</in>
+          </df>
+          <df name="peripherals">
+            <in>misc.h</in>
+            <in>stm32f10x_adc.h</in>
+            <in>stm32f10x_bkp.h</in>
+            <in>stm32f10x_can.h</in>
+            <in>stm32f10x_cec.h</in>
+            <in>stm32f10x_crc.h</in>
+            <in>stm32f10x_dac.h</in>
+            <in>stm32f10x_dbgmcu.h</in>
+            <in>stm32f10x_dma.h</in>
+            <in>stm32f10x_exti.h</in>
+            <in>stm32f10x_flash.h</in>
+            <in>stm32f10x_fsmc.h</in>
+            <in>stm32f10x_gpio.h</in>
+            <in>stm32f10x_i2c.h</in>
+            <in>stm32f10x_iwdg.h</in>
+            <in>stm32f10x_pwr.h</in>
+            <in>stm32f10x_rcc.h</in>
+            <in>stm32f10x_rtc.h</in>
+            <in>stm32f10x_sdio.h</in>
+            <in>stm32f10x_spi.h</in>
+            <in>stm32f10x_tim.h</in>
+            <in>stm32f10x_usart.h</in>
+            <in>stm32f10x_wwdg.h</in>
+          </df>
+          <in>stm32f10x_conf.h</in>
+          <in>usb_core.h</in>
+          <in>usb_def.h</in>
+          <in>usb_init.h</in>
+          <in>usb_int.h</in>
+          <in>usb_lib.h</in>
+          <in>usb_mem.h</in>
+          <in>usb_regs.h</in>
+          <in>usb_sil.h</in>
+          <in>usb_type.h</in>
+        </df>
+        <df name="src">
+          <df name="core">
+            <in>core_cm3.c</in>
+            <in>system_stm32f10x.c</in>
+          </df>
+          <df name="peripherals">
+            <in>misc.c</in>
+            <in>stm32f10x_adc.c</in>
+            <in>stm32f10x_bkp.c</in>
+            <in>stm32f10x_can.c</in>
+            <in>stm32f10x_cec.c</in>
+            <in>stm32f10x_crc.c</in>
+            <in>stm32f10x_dac.c</in>
+            <in>stm32f10x_dbgmcu.c</in>
+            <in>stm32f10x_dma.c</in>
+            <in>stm32f10x_exti.c</in>
+            <in>stm32f10x_flash.c</in>
+            <in>stm32f10x_fsmc.c</in>
+            <in>stm32f10x_gpio.c</in>
+            <in>stm32f10x_i2c.c</in>
+            <in>stm32f10x_iwdg.c</in>
+            <in>stm32f10x_pwr.c</in>
+            <in>stm32f10x_rcc.c</in>
+            <in>stm32f10x_rtc.c</in>
+            <in>stm32f10x_sdio.c</in>
+            <in>stm32f10x_spi.c</in>
+            <in>stm32f10x_tim.c</in>
+            <in>stm32f10x_usart.c</in>
+            <in>stm32f10x_wwdg.c</in>
+          </df>
+          <in>usb_core.c</in>
+          <in>usb_init.c</in>
+          <in>usb_int.c</in>
+          <in>usb_mem.c</in>
+          <in>usb_regs.c</in>
+          <in>usb_sil.c</in>
+        </df>
+        <in>startup_stm32f10x_hd.s</in>
+        <in>startup_stm32f10x_ld.s</in>
+        <in>startup_stm32f10x_md.s</in>
+      </df>
+      <df name="src">
+        <in>battery_adc.c</in>
+        <in>delay.c</in>
+        <in>ds3231.c</in>
+        <in>flash.c</in>
+        <in>hw_config.c</in>
+        <in>main.c</in>
+        <in>nixietube.c</in>
+        <in>stm32f10x_it.c</in>
+        <in>usart.c</in>
+        <in>usb_desc.c</in>
+        <in>usb_endp.c</in>
+        <in>usb_istr.c</in>
+        <in>usb_prop.c</in>
+        <in>usb_pwr.c</in>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>
