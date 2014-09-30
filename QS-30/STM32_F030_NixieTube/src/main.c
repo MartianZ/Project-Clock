@@ -14,7 +14,7 @@ PID pid_power_170v;
 uint8_t ds1302_time[8] = {0, 1, 1, 1, 0, 0, 0, 1};
 
 //Var for Software PWM, Set MAX = 1000
-//R G B Y 
+//R G B Y
 __IO uint16_t pwm_counter;
 __IO uint16_t pwm_target[4] = {800, 1000, 1000, 1000};
 uint8_t current_state = 0;
@@ -33,6 +33,7 @@ static void configuration_adc_dma(void) {
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
+    
 
     /* Initialize ADC structure */
     ADC_StructInit(&ADC_InitStructure);
@@ -258,7 +259,7 @@ int main(void) {
             nixietube_send_595_new_number(ds1302_time[5] / 10, ds1302_time[5] % 10);
             delay_ms(200);
         }
-        
+
         if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2) == Bit_RESET) {
             if (pid_power_170v.SetPoint == 20) pid_power_170v.SetPoint = 0; else pid_power_170v.SetPoint = 20;
             delay_ms(2000);
