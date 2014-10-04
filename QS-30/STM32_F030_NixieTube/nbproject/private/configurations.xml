@@ -91,6 +91,8 @@
         <in>startup_stm32f10x_ld.s</in>
         <in>startup_stm32f10x_md.s</in>
       </df>
+      <df name="obj">
+      </df>
       <df name="src">
         <in>delay.c</in>
         <in>ds1302.c</in>
