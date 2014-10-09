@@ -209,8 +209,10 @@ void IWDG_Configuration(void) {
 }
 
 int main(void) {
+    
     SystemInit();
-
+    NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x08004000);
+    
     Delay_init(72);
 
     GPIO_Configuration();
@@ -226,7 +228,7 @@ int main(void) {
     USART1_Init();
     PWM_Configuration();
     Flash_ReadData(&LED);
-    AutoPowerOff = Flash_ReadConfiguration() & 0xF;
+    AutoPowerOff = Flash_ReadConfiguration() & 0x1;
     NixieTube_LED_Set_RGB(LED);
 
 
@@ -269,6 +271,8 @@ int main(void) {
         IWDG_ReloadCounter();
 
         if (GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13) == 0) { //S2: Cancel auto poweroff and enable/disable nixie tube
+            TIM_Cmd(TIM3, DISABLE);
+            
             if (NixieTube_EN) {
                 SPEAKER_BEEP_THREE_DOWN();
             } else {
@@ -276,6 +280,7 @@ int main(void) {
             }
             NixieTube_EN = 1 - NixieTube_EN;
             AutoPowerOff = 0;
+            TIM_Cmd(TIM3, ENABLE);
 
 
 
