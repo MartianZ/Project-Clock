@@ -8,8 +8,8 @@
 #include "flash.h"
 
 #define FLASH_PAGE_SIZE    ((uint16_t)0x400)
-#define ProgramAddr        ((u32)0x0800C800)  //Page 50, hmmmm... daijyoubune?
-#define ConfigurationAddr        ((u32)0x0800CC00)  //Page 51
+#define ProgramAddr        ((u32)0x0800F000)  //Page 60, hmmmm... daijyoubune?
+#define ConfigurationAddr        ((u32)0x0800F400)  //Page 61
 
 
 void Flash_WriteConfiguration(uint32_t configuration) {
