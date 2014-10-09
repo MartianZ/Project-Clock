@@ -68,7 +68,7 @@ void NixieTube_Normal_SetNewTime(DS3231_date_TypeDef date) {
     time[5] = date.hours & 0x0f;
     time[6] = date.hours >> 4;
 
-    if (!NixieTube_EN || (AutoPowerOff && (time[6] * 10 + time[5]) >= 1 && (time[6] * 10 + time[5]) <= 6)) {
+    if (!NixieTube_EN || (AutoPowerOff && (time[6] * 10 + time[5]) >= 1 && (time[6] * 10 + time[5]) <= 17 && (time[6] * 10 + time[5]) != 8)) {
         SET_CPLD_EN_LOW;
         LED.R = 0;
         LED.G = 0;
@@ -118,8 +118,10 @@ void NixieTube_Normal_SetNewTime(DS3231_date_TypeDef date) {
 
             Delay_us(500);
 
-            if (!(!NixieTube_EN || (AutoPowerOff && (time[6] * 10 + time[5]) >= 1 && (time[6] * 10 + time[5]) <= 6))) {
+            if (!(!NixieTube_EN || (AutoPowerOff && (time[6] * 10 + time[5]) >= 1 && (time[6] * 10 + time[5]) <= 17 && (time[6] * 10 + time[5]) != 8))) {
                 TIM_SetCompare2(TIM4, (500 - abs(t - 500)) / 500.0 * 1000 * 0.015);
+            } else {
+                GPIO_SetBits(GPIOA, GPIO_Pin_0);
             }
 
 
@@ -136,9 +138,10 @@ void NixieTube_Normal_SetNewTime(DS3231_date_TypeDef date) {
              */
             Delay_us(500);
 
-            if (!(!NixieTube_EN || (AutoPowerOff && (time[6] * 10 + time[5]) >= 1 && (time[6] * 10 + time[5]) <= 6))) {
+            if (!(!NixieTube_EN || (AutoPowerOff && (time[6] * 10 + time[5]) >= 1 && (time[6] * 10 + time[5]) <= 17 && (time[6] * 10 + time[5]) != 8))) {
                 TIM_SetCompare2(TIM4, (500 - abs(t - 500)) / 500.0 * 1000 * 0.015);
             }
+            GPIO_ResetBits(GPIOA, GPIO_Pin_0);
 
         }
     }
