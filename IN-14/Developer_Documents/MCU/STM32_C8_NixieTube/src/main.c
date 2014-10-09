@@ -264,6 +264,7 @@ int main(void) {
     //srand(*(int *) &date); //Generate seed for rand
 
     SPEAKER_BEEP_ONE();
+    GPIO_ResetBits(GPIOA, GPIO_Pin_0);
     TIM3_Configuration();
 
     IWDG_Configuration();
