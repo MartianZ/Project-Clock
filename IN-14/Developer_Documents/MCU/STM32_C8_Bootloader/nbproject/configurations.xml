@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="89">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="STM32_C8">
+      <df name="inc">
+        <in>battery_adc.h</in>
+        <in>delay.h</in>
+        <in>ds3231.h</in>
+        <in>flash.h</in>
+        <in>hw_config.h</in>
+        <in>nixietube.h</in>
+        <in>platform_config.h</in>
+        <in>stm32f10x_conf.h</in>
+        <in>stm32f10x_it.h</in>
+        <in>usart.h</in>
+        <in>usb_conf.h</in>
+        <in>usb_desc.h</in>
+        <in>usb_istr.h</in>
+        <in>usb_prop.h</in>
+        <in>usb_pwr.h</in>
+      </df>
+      <df name="lib">
+        <df name="inc">
+          <df name="core">
+            <in>core_cm3.h</in>
+            <in>stm32f10x.h</in>
+            <in>system_stm32f10x.h</in>
+          </df>
+          <df name="peripherals">
+            <in>misc.h</in>
+            <in>stm32f10x_adc.h</in>
+            <in>stm32f10x_bkp.h</in>
+            <in>stm32f10x_can.h</in>
+            <in>stm32f10x_cec.h</in>
+            <in>stm32f10x_crc.h</in>
+            <in>stm32f10x_dac.h</in>
+            <in>stm32f10x_dbgmcu.h</in>
+            <in>stm32f10x_dma.h</in>
+            <in>stm32f10x_exti.h</in>
+            <in>stm32f10x_flash.h</in>
+            <in>stm32f10x_fsmc.h</in>
+            <in>stm32f10x_gpio.h</in>
+            <in>stm32f10x_i2c.h</in>
+            <in>stm32f10x_iwdg.h</in>
+            <in>stm32f10x_pwr.h</in>
+            <in>stm32f10x_rcc.h</in>
+            <in>stm32f10x_rtc.h</in>
+            <in>stm32f10x_sdio.h</in>
+            <in>stm32f10x_spi.h</in>
+            <in>stm32f10x_tim.h</in>
+            <in>stm32f10x_usart.h</in>
+            <in>stm32f10x_wwdg.h</in>
+          </df>
+        </df>
+        <df name="src">
+          <df name="core">
+            <in>core_cm3.c</in>
+            <in>system_stm32f10x.c</in>
+          </df>
+          <df name="peripherals">
+            <in>misc.c</in>
+            <in>stm32f10x_adc.c</in>
+            <in>stm32f10x_bkp.c</in>
+            <in>stm32f10x_can.c</in>
+            <in>stm32f10x_cec.c</in>
+            <in>stm32f10x_crc.c</in>
+            <in>stm32f10x_dac.c</in>
+            <in>stm32f10x_dbgmcu.c</in>
+            <in>stm32f10x_dma.c</in>
+            <in>stm32f10x_exti.c</in>
+            <in>stm32f10x_flash.c</in>
+            <in>stm32f10x_fsmc.c</in>
+            <in>stm32f10x_gpio.c</in>
+            <in>stm32f10x_i2c.c</in>
+            <in>stm32f10x_iwdg.c</in>
+            <in>stm32f10x_pwr.c</in>
+            <in>stm32f10x_rcc.c</in>
+            <in>stm32f10x_rtc.c</in>
+            <in>stm32f10x_sdio.c</in>
+            <in>stm32f10x_spi.c</in>
+            <in>stm32f10x_tim.c</in>
+            <in>stm32f10x_usart.c</in>
+            <in>stm32f10x_wwdg.c</in>
+          </df>
+          <in>usb_core.c</in>
+          <in>usb_init.c</in>
+          <in>usb_int.c</in>
+          <in>usb_mem.c</in>
+          <in>usb_regs.c</in>
+          <in>usb_sil.c</in>
+        </df>
+      </df>
+      <df name="src">
+        <in>battery_adc.c</in>
+        <in>delay.c</in>
+        <in>ds3231.c</in>
+        <in>flash.c</in>
+        <in>hw_config.c</in>
+        <in>main.c</in>
+        <in>nixietube.c</in>
+        <in>stm32f10x_it.c</in>
+        <in>usart.c</in>
+        <in>usb_desc.c</in>
+        <in>usb_endp.c</in>
+        <in>usb_istr.c</in>
+        <in>usb_prop.c</in>
+        <in>usb_pwr.c</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="重要文件"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU-SAT|GNU</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>main.elf</executablePath>
+          <cTool>
+            <incDir>
+              <pElem>inc</pElem>
+              <pElem>lib</pElem>
+              <pElem>lib/inc</pElem>
+              <pElem>lib/inc/core</pElem>
+              <pElem>lib/inc/peripherals</pElem>
+              <pElem>.</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>STM32F10X_MD=1</Elem>
+              <Elem>USE_STDPERIPH_DRIVER=1</Elem>
+            </preprocessorList>
+          </cTool>
+        </makeTool>
+      </makefileType>
+      <item path="inc/battery_adc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/delay.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ds3231.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/flash.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/hw_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/nixietube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/platform_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/stm32f10x_conf.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/stm32f10x_it.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/usart.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/usb_conf.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/usb_desc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/usb_istr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/usb_prop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/usb_pwr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/core/core_cm3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/core/stm32f10x.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/core/system_stm32f10x.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/misc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_adc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_bkp.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_can.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_cec.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_crc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_dac.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_dbgmcu.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_dma.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_exti.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_flash.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_fsmc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_gpio.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_i2c.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_iwdg.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_pwr.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_rcc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_rtc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_sdio.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_spi.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_tim.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_usart.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/inc/peripherals/stm32f10x_wwdg.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="lib/src/core/core_cm3.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/core/system_stm32f10x.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/misc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_adc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_bkp.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_can.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_cec.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_crc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_dac.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_dbgmcu.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_dma.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_exti.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_flash.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_fsmc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_gpio.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_i2c.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_iwdg.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_pwr.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_rcc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_rtc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_sdio.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_spi.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_tim.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_usart.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/peripherals/stm32f10x_wwdg.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lib/src/usb_core.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/usb_init.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/usb_int.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/usb_mem.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/usb_regs.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lib/src/usb_sil.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/battery_adc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/delay.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/ds3231.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/flash.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/hw_config.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/nixietube.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/stm32f10x_it.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/usart.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/usb_desc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/usb_endp.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/usb_istr.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/usb_prop.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/usb_pwr.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
