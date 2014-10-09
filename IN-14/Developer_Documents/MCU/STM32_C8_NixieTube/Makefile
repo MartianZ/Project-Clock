@@ -54,7 +54,7 @@ clean:
 	rm -f $(PROJ_NAME).bin
 	
 flash:
-	/Users/MartianZ/Documents/stm32/stlink/st-flash write $(PROJ_NAME).bin 0x08000000
+	/Users/MartianZ/Documents/stm32/stlink/st-flash write $(PROJ_NAME).bin 0x08004000
 erase:
 	/Users/MartianZ/Documents/stm32/stlink/st-flash erase
 	
