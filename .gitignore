@@ -3,6 +3,9 @@
 *.ko
 *.obj
 *.elf
+*.hex
+*.bin
+*.elf
 
 # Precompiled Headers
 *.gch
@@ -27,3 +30,5 @@
 *.i*86
 *.x86_64
 *.hex
+
+*.bin
