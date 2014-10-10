@@ -47,8 +47,8 @@ uint8_t DFU_DeviceDescriptor[DFU_SIZ_DEVICE_DESC] =
     0x00,   /* bDeviceSubClass : See interface*/
     0x00,   /* bDeviceProtocol : See interface */
     bMaxPacketSize0, /* bMaxPacketSize0 0x40 = 64 */
-    0x83,   /* idVendor     (0483) */
-    0x04,
+    0x01,   /* idVendor     (0483) */
+    0x00,
     0x11,   /* idProduct (0xDF11) DFU PiD*/
     0xDF,
     0x00,   /* bcdDevice*/
@@ -326,9 +326,9 @@ uint8_t DFU_StringVendor[DFU_SIZ_STRING_VENDOR] =
     DFU_SIZ_STRING_VENDOR,
     0x03,
     /* Manufacturer: "STMicroelectronics" */
-    'S', 0, 'T', 0, 'M', 0, 'i', 0, 'c', 0, 'r', 0, 'o', 0, 'e', 0,
-    'l', 0, 'e', 0, 'c', 0, 't', 0, 'r', 0, 'o', 0, 'n', 0, 'i', 0,
-    'c', 0, 's', 0
+    'U', 0, 'E', 0, 'S', 0, 'T', 0, 'C', 0, ' ', 0, ' ', 0, ' ', 0,
+    ' ', 0, ' ', 0, ' ', 0, ' ', 0, ' ', 0, ' ', 0, ' ', 0, ' ', 0,
+    ' ', 0, ' ', 0
   };
 
 uint8_t DFU_StringProduct[DFU_SIZ_STRING_PRODUCT] =
@@ -336,7 +336,7 @@ uint8_t DFU_StringProduct[DFU_SIZ_STRING_PRODUCT] =
     DFU_SIZ_STRING_PRODUCT,
     0x03,
     /* Product name: "STM32 DFU" */
-    'S', 0, 'T', 0, 'M', 0, '3', 0, '2', 0, ' ', 0, 'D', 0, 'F', 0, 'U', 0
+    'N', 0, 'i', 0, 'x', 0, 'i', 0, 'e', 0, ' ', 0, 'D', 0, 'F', 0, 'U', 0
   };
 
 uint8_t DFU_StringSerial[DFU_SIZ_STRING_SERIAL] =
@@ -344,7 +344,7 @@ uint8_t DFU_StringSerial[DFU_SIZ_STRING_SERIAL] =
     DFU_SIZ_STRING_SERIAL,
     0x03,
     /* Serial number */
-    'S', 0, 'T', 0, 'M', 0, '3', 0, '2', 0  
+    'U', 0, 'E', 0, 'S', 0, 'T', 0, 'C', 0  
   };
 
 #if defined (USE_STM3210B_EVAL) || defined (USE_STM32373C_EVAL) || defined (USE_STM32303C_EVAL)
