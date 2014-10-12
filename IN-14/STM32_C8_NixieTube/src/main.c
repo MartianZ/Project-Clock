@@ -9,8 +9,10 @@
 #include "battery_adc.h"
 #include "flash.h"
 #include <stdlib.h>
+#include "usart.h"
 
 uint8_t Receive_Buffer[64];
+//uint8_t Tx_Buffer[64];
 //__IO uint16_t CCR1_Val = 0x0;
 LED5050 LED;
 uint8_t NixieTube_EN = 1;
@@ -29,18 +31,34 @@ void SPEAKER_BEEP_ONE() {
 }
 
 void SendString(const unsigned char *string) {
-
+    unsigned char str[64];
+    memset(str, '\0', sizeof(unsigned char)*64);
+    memcpy(str, string, strlen(string) > 64 ? 64 : strlen(string));
+    
+    UserToPMABufferCopy(str, GetEPTxAddr(ENDP1), 64);
+    
+    SetEPTxCount(ENDP1, 64);
+    SetEPTxValid(ENDP1);
+    IWDG_ReloadCounter();
+    while (GetEPTxStatus(ENDP1) == EP_TX_VALID);
+    IWDG_ReloadCounter();
 }
 
 
 
 void EP1_OUT_Callback(void)
 {
-	u8 DataLen;
+	uint8_t DataLen, i;
+    
 	DataLen = GetEPRxCount(ENDP1);
 	PMAToUserBufferCopy(Receive_Buffer, ENDP1_RXADDR, DataLen);
 	SetEPRxValid(ENDP1);
-    if (Receive_Buffer[0] == '1') SPEAKER_BEEP_ONE();
+    
+    for(i = 0; i < DataLen; i++)
+    {
+        if (!Receive_Buffer[i]) break;
+        USART_Terminal(Receive_Buffer[i]);
+    }
 } 
 
 
