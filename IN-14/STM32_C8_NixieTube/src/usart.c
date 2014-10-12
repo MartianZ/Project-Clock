@@ -94,12 +94,12 @@ void inline USART_SendConfigurationInfo() {
     USART_SendStr(USART1, " b - Set the positive duty cycle of blue leds\r\n");
 }
 
-void USART_Terminal() {
+void USART_Terminal(uint16_t ch) {
     static uint16_t conf_mode = 0;
     static uint8_t waiting_for_number = 0, i;
     static uint16_t new_value = 0;
 
-    uint16_t ch = USART_ReceiveData(USART1);
+    //uint16_t ch = USART_ReceiveData(USART1);
     DS3231_date_TypeDef date;
     char st_tm[9] = "00:00:00";
     char st_dt[11] = "0000.00.00";

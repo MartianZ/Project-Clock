@@ -19,7 +19,7 @@ void USART_SendStr(USART_TypeDef* USARTx, char *str);
 void USART_SendBuf(USART_TypeDef* USARTx, char *buf, unsigned int bufsize);
 void USART_SendBufHex(USART_TypeDef* USARTx, char *buf, unsigned int bufsize);
 void USART1_Init(void);
-void USART_Terminal();
+void USART_Terminal(uint16_t ch);
 
 #ifdef	__cplusplus
 }
