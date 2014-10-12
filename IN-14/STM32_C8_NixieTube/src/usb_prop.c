@@ -1,32 +1,20 @@
-/**
-  ******************************************************************************
-  * @file    usb_prop.c
-  * @author  MCD Application Team
-  * @version V4.0.0
-  * @date    21-January-2013
-  * @brief   All processing related to Virtual Com Port Demo
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2013 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
-
+/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+* File Name          : usb_prop.c
+* Author             : MCD Application Team
+* Version            : V2.2.0
+* Date               : 06/13/2008
+* Description        : All processings related to Custom HID Demo
+********************************************************************************
+* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+* CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+*******************************************************************************/
 
 /* Includes ------------------------------------------------------------------*/
+#include "stm32f10x.h"
 #include "usb_lib.h"
 #include "usb_conf.h"
 #include "usb_prop.h"
@@ -38,15 +26,7 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint8_t Request = 0;
-
-LINE_CODING linecoding =
-  {
-    115200, /* baud rate*/
-    0x00,   /* stop bits-1*/
-    0x00,   /* parity - none*/
-    0x08    /* no. of bits 8*/
-  };
+u32 ProtocolValue;
 
 /* -------------------------------------------------------------------------- */
 /*  Structures initializations */
@@ -60,103 +40,105 @@ DEVICE Device_Table =
 
 DEVICE_PROP Device_Property =
   {
-    Virtual_Com_Port_init,
-    Virtual_Com_Port_Reset,
-    Virtual_Com_Port_Status_In,
-    Virtual_Com_Port_Status_Out,
-    Virtual_Com_Port_Data_Setup,
-    Virtual_Com_Port_NoData_Setup,
-    Virtual_Com_Port_Get_Interface_Setting,
-    Virtual_Com_Port_GetDeviceDescriptor,
-    Virtual_Com_Port_GetConfigDescriptor,
-    Virtual_Com_Port_GetStringDescriptor,
+    CustomHID_init,
+    CustomHID_Reset,
+    CustomHID_Status_In,
+    CustomHID_Status_Out,
+    CustomHID_Data_Setup,
+    CustomHID_NoData_Setup,
+    CustomHID_Get_Interface_Setting,
+    CustomHID_GetDeviceDescriptor,
+    CustomHID_GetConfigDescriptor,
+    CustomHID_GetStringDescriptor,
     0,
     0x40 /*MAX PACKET SIZE*/
   };
-
 USER_STANDARD_REQUESTS User_Standard_Requests =
   {
-    Virtual_Com_Port_GetConfiguration,
-    Virtual_Com_Port_SetConfiguration,
-    Virtual_Com_Port_GetInterface,
-    Virtual_Com_Port_SetInterface,
-    Virtual_Com_Port_GetStatus,
-    Virtual_Com_Port_ClearFeature,
-    Virtual_Com_Port_SetEndPointFeature,
-    Virtual_Com_Port_SetDeviceFeature,
-    Virtual_Com_Port_SetDeviceAddress
+    CustomHID_GetConfiguration,
+    CustomHID_SetConfiguration,
+    CustomHID_GetInterface,
+    CustomHID_SetInterface,
+    CustomHID_GetStatus,
+    CustomHID_ClearFeature,
+    CustomHID_SetEndPointFeature,
+    CustomHID_SetDeviceFeature,
+    CustomHID_SetDeviceAddress
   };
 
 ONE_DESCRIPTOR Device_Descriptor =
   {
-    (uint8_t*)Virtual_Com_Port_DeviceDescriptor,
-    VIRTUAL_COM_PORT_SIZ_DEVICE_DESC
+    (u8*)CustomHID_DeviceDescriptor,
+    CUSTOMHID_SIZ_DEVICE_DESC
   };
 
 ONE_DESCRIPTOR Config_Descriptor =
   {
-    (uint8_t*)Virtual_Com_Port_ConfigDescriptor,
-    VIRTUAL_COM_PORT_SIZ_CONFIG_DESC
+    (u8*)CustomHID_ConfigDescriptor,
+    CUSTOMHID_SIZ_CONFIG_DESC
+  };
+
+ONE_DESCRIPTOR CustomHID_Report_Descriptor =
+  {
+    (u8 *)CustomHID_ReportDescriptor,
+    CUSTOMHID_SIZ_REPORT_DESC
+  };
+
+ONE_DESCRIPTOR CustomHID_Hid_Descriptor =
+  {
+    (u8*)CustomHID_ConfigDescriptor + CUSTOMHID_OFF_HID_DESC,
+    CUSTOMHID_SIZ_HID_DESC
   };
 
 ONE_DESCRIPTOR String_Descriptor[4] =
   {
-    {(uint8_t*)Virtual_Com_Port_StringLangID, VIRTUAL_COM_PORT_SIZ_STRING_LANGID},
-    {(uint8_t*)Virtual_Com_Port_StringVendor, VIRTUAL_COM_PORT_SIZ_STRING_VENDOR},
-    {(uint8_t*)Virtual_Com_Port_StringProduct, VIRTUAL_COM_PORT_SIZ_STRING_PRODUCT},
-    {(uint8_t*)Virtual_Com_Port_StringSerial, VIRTUAL_COM_PORT_SIZ_STRING_SERIAL}
+    {(u8*)CustomHID_StringLangID, CUSTOMHID_SIZ_STRING_LANGID},
+    {(u8*)CustomHID_StringVendor, CUSTOMHID_SIZ_STRING_VENDOR},
+    {(u8*)CustomHID_StringProduct, CUSTOMHID_SIZ_STRING_PRODUCT},
+    {(u8*)CustomHID_StringSerial, CUSTOMHID_SIZ_STRING_SERIAL}
   };
 
 /* Extern variables ----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Extern function prototypes ------------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
+
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_init.
-* Description    : Virtual COM Port Mouse init routine.
+* Function Name  : CustomHID_init.
+* Description    : Custom HID init routine.
 * Input          : None.
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void Virtual_Com_Port_init(void)
+void CustomHID_init(void)
 {
-
-  /* Update the serial number string descriptor with the data from the unique
+  /* Update the serial number string descriptor with the data from the unique 
   ID*/
-  Get_SerialNum();
-
+//  Get_SerialNum();
+    
   pInformation->Current_Configuration = 0;
-
   /* Connect the device */
   PowerOn();
-
-  /* Perform basic device initialization operations */
-  USB_SIL_Init();
-
-  /* configure the USART to the default settings */
-  USART_Config_Default();
+  /* USB interrupts initialization */
+  _SetISTR(0);               /* clear pending interrupts */
+  wInterrupt_Mask = IMR_MSK;
+  _SetCNTR(wInterrupt_Mask); /* set interrupts mask */
 
   bDeviceState = UNCONNECTED;
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_Reset
-* Description    : Virtual_Com_Port Mouse reset routine
+* Function Name  : CustomHID_Reset.
+* Description    : Custom HID reset routine.
 * Input          : None.
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void Virtual_Com_Port_Reset(void)
+void CustomHID_Reset(void)
 {
-  /* Set Virtual_Com_Port DEVICE as not configured */
+  /* Set Joystick_DEVICE as not configured */
   pInformation->Current_Configuration = 0;
-
-  /* Current Feature initialization */
-  pInformation->Current_Feature = Virtual_Com_Port_ConfigDescriptor[7];
-
-  /* Set Virtual_Com_Port DEVICE with the default Interface*/
-  pInformation->Current_Interface = 0;
-
+  pInformation->Current_Interface = 0;/*the default Interface*/
   SetBTABLE(BTABLE_ADDRESS);
 
   /* Initialize Endpoint 0 */
@@ -169,113 +151,107 @@ void Virtual_Com_Port_Reset(void)
   SetEPRxValid(ENDP0);
 
   /* Initialize Endpoint 1 */
-  SetEPType(ENDP1, EP_BULK);
+  SetEPType(ENDP1, EP_INTERRUPT);
   SetEPTxAddr(ENDP1, ENDP1_TXADDR);
-  SetEPTxStatus(ENDP1, EP_TX_NAK);
+  SetEPTxCount(ENDP1, 64);
   SetEPRxStatus(ENDP1, EP_RX_DIS);
+  SetEPTxStatus(ENDP1, EP_TX_NAK);
 
-  /* Initialize Endpoint 2 */
-  SetEPType(ENDP2, EP_INTERRUPT);
-  SetEPTxAddr(ENDP2, ENDP2_TXADDR);
-  SetEPRxStatus(ENDP2, EP_RX_DIS);
-  SetEPTxStatus(ENDP2, EP_TX_NAK);
-
-  /* Initialize Endpoint 3 */
-  SetEPType(ENDP3, EP_BULK);
-  SetEPRxAddr(ENDP3, ENDP3_RXADDR);
-  SetEPRxCount(ENDP3, VIRTUAL_COM_PORT_DATA_SIZE);
-  SetEPRxStatus(ENDP3, EP_RX_VALID);
-  SetEPTxStatus(ENDP3, EP_TX_DIS);
-
+  /* Initialize Endpoint 1 */
+ // SetEPType(ENDP1, EP_INTERRUPT);
+  SetEPRxAddr(ENDP1, ENDP1_RXADDR);
+  SetEPRxCount(ENDP1, 64);
+ // SetEPTxStatus(ENDP1, EP_TX_DIS);
+  SetEPRxStatus(ENDP1, EP_RX_VALID);
   /* Set this device to response on default address */
   SetDeviceAddress(0);
-  
-  bDeviceState = ATTACHED;
 }
-
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_SetConfiguration.
-* Description    : Update the device state to configured.
+* Function Name  : CustomHID_SetConfiguration.
+* Description    : Udpade the device state to configured and command the ADC 
+*                  conversion.
 * Input          : None.
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void Virtual_Com_Port_SetConfiguration(void)
+void CustomHID_SetConfiguration(void)
 {
-  DEVICE_INFO *pInfo = &Device_Info;
-
-  if (pInfo->Current_Configuration != 0)
+  if (pInformation->Current_Configuration != 0)
   {
     /* Device configured */
     bDeviceState = CONFIGURED;
+    
+    /* Start ADC1 Software Conversion */ 
+    ADC_SoftwareStartConvCmd(ADC1, ENABLE);
   }
 }
-
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_SetConfiguration.
-* Description    : Update the device state to addressed.
+* Function Name  : CustomHID_SetConfiguration.
+* Description    : Udpade the device state to addressed.
 * Input          : None.
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void Virtual_Com_Port_SetDeviceAddress (void)
+void CustomHID_SetDeviceAddress (void)
 {
   bDeviceState = ADDRESSED;
 }
-
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_Status_In.
-* Description    : Virtual COM Port Status In Routine.
+* Function Name  : CustomHID_Status_In.
+* Description    : Joystick status IN routine.
 * Input          : None.
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void Virtual_Com_Port_Status_In(void)
+void CustomHID_Status_In(void)
 {
-  if (Request == SET_LINE_CODING)
-  {
-    USART_Config();
-    Request = 0;
-  }
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_Status_Out
-* Description    : Virtual COM Port Status OUT Routine.
+* Function Name  : CustomHID_Status_Out
+* Description    : Joystick status OUT routine.
 * Input          : None.
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void Virtual_Com_Port_Status_Out(void)
-{}
+void CustomHID_Status_Out (void)
+{
+}
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_Data_Setup
-* Description    : handle the data class specific requests
+* Function Name  : CustomHID_Data_Setup
+* Description    : Handle the data class specific requests.
 * Input          : Request Nb.
 * Output         : None.
 * Return         : USB_UNSUPPORT or USB_SUCCESS.
 *******************************************************************************/
-RESULT Virtual_Com_Port_Data_Setup(uint8_t RequestNo)
+RESULT CustomHID_Data_Setup(u8 RequestNo)
 {
-  uint8_t    *(*CopyRoutine)(uint16_t);
+  u8 *(*CopyRoutine)(u16);
 
   CopyRoutine = NULL;
 
-  if (RequestNo == GET_LINE_CODING)
+  if ((RequestNo == GET_DESCRIPTOR)
+      && (Type_Recipient == (STANDARD_REQUEST | INTERFACE_RECIPIENT))
+      && (pInformation->USBwIndex0 == 0))
   {
-    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+
+    if (pInformation->USBwValue1 == REPORT_DESCRIPTOR)
     {
-      CopyRoutine = Virtual_Com_Port_GetLineCoding;
+      CopyRoutine = CustomHID_GetReportDescriptor;
     }
-  }
-  else if (RequestNo == SET_LINE_CODING)
+    else if (pInformation->USBwValue1 == HID_DESCRIPTOR_TYPE)
+    {
+      CopyRoutine = CustomHID_GetHIDDescriptor;
+    }
+
+  } /* End of GET_DESCRIPTOR */
+
+  /*** GET_PROTOCOL ***/
+  else if ((Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+           && RequestNo == GET_PROTOCOL)
   {
-    if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
-    {
-      CopyRoutine = Virtual_Com_Port_SetLineCoding;
-    }
-    Request = SET_LINE_CODING;
+    CopyRoutine = CustomHID_GetProtocolValue;
   }
 
   if (CopyRoutine == NULL)
@@ -290,90 +266,110 @@ RESULT Virtual_Com_Port_Data_Setup(uint8_t RequestNo)
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_NoData_Setup.
-* Description    : handle the no data class specific requests.
+* Function Name  : CustomHID_NoData_Setup
+* Description    : handle the no data class specific requests
 * Input          : Request Nb.
 * Output         : None.
 * Return         : USB_UNSUPPORT or USB_SUCCESS.
 *******************************************************************************/
-RESULT Virtual_Com_Port_NoData_Setup(uint8_t RequestNo)
+RESULT CustomHID_NoData_Setup(u8 RequestNo)
 {
-
-  if (Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+  if ((Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT))
+      && (RequestNo == SET_PROTOCOL))
   {
-    if (RequestNo == SET_COMM_FEATURE)
-    {
-      return USB_SUCCESS;
-    }
-    else if (RequestNo == SET_CONTROL_LINE_STATE)
-    {
-      return USB_SUCCESS;
-    }
+    return CustomHID_SetProtocol();
   }
 
-  return USB_UNSUPPORT;
+  else
+  {
+    return USB_UNSUPPORT;
+  }
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_GetDeviceDescriptor.
+* Function Name  : CustomHID_GetDeviceDescriptor.
 * Description    : Gets the device descriptor.
-* Input          : Length.
+* Input          : Length
 * Output         : None.
 * Return         : The address of the device descriptor.
 *******************************************************************************/
-uint8_t *Virtual_Com_Port_GetDeviceDescriptor(uint16_t Length)
+u8 *CustomHID_GetDeviceDescriptor(u16 Length)
 {
   return Standard_GetDescriptorData(Length, &Device_Descriptor);
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_GetConfigDescriptor.
-* Description    : get the configuration descriptor.
-* Input          : Length.
+* Function Name  : CustomHID_GetConfigDescriptor.
+* Description    : Gets the configuration descriptor.
+* Input          : Length
 * Output         : None.
 * Return         : The address of the configuration descriptor.
 *******************************************************************************/
-uint8_t *Virtual_Com_Port_GetConfigDescriptor(uint16_t Length)
+u8 *CustomHID_GetConfigDescriptor(u16 Length)
 {
   return Standard_GetDescriptorData(Length, &Config_Descriptor);
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_GetStringDescriptor
+* Function Name  : CustomHID_GetStringDescriptor
 * Description    : Gets the string descriptors according to the needed index
-* Input          : Length.
+* Input          : Length
 * Output         : None.
 * Return         : The address of the string descriptors.
 *******************************************************************************/
-uint8_t *Virtual_Com_Port_GetStringDescriptor(uint16_t Length)
+u8 *CustomHID_GetStringDescriptor(u16 Length)
 {
-  uint8_t wValue0 = pInformation->USBwValue0;
+  u8 wValue0 = pInformation->USBwValue0;
   if (wValue0 > 4)
   {
     return NULL;
   }
-  else
+  else 
   {
     return Standard_GetDescriptorData(Length, &String_Descriptor[wValue0]);
   }
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_Get_Interface_Setting.
-* Description    : test the interface and the alternate setting according to the
-*                  supported one.
-* Input1         : uint8_t: Interface : interface number.
-* Input2         : uint8_t: AlternateSetting : Alternate Setting number.
+* Function Name  : CustomHID_GetReportDescriptor.
+* Description    : Gets the HID report descriptor.
+* Input          : Length
 * Output         : None.
-* Return         : The address of the string descriptors.
+* Return         : The address of the configuration descriptor.
 *******************************************************************************/
-RESULT Virtual_Com_Port_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSetting)
+u8 *CustomHID_GetReportDescriptor(u16 Length)
+{
+  return Standard_GetDescriptorData(Length, &CustomHID_Report_Descriptor);
+}
+
+/*******************************************************************************
+* Function Name  : CustomHID_GetHIDDescriptor.
+* Description    : Gets the HID descriptor.
+* Input          : Length
+* Output         : None.
+* Return         : The address of the configuration descriptor.
+*******************************************************************************/
+u8 *CustomHID_GetHIDDescriptor(u16 Length)
+{
+  return Standard_GetDescriptorData(Length, &CustomHID_Hid_Descriptor);
+}
+
+/*******************************************************************************
+* Function Name  : CustomHID_Get_Interface_Setting.
+* Description    : tests the interface and the alternate setting according to the
+*                  supported one.
+* Input          : - Interface : interface number.
+*                  - AlternateSetting : Alternate Setting number.
+* Output         : None.
+* Return         : USB_SUCCESS or USB_UNSUPPORT.
+*******************************************************************************/
+RESULT CustomHID_Get_Interface_Setting(u8 Interface, u8 AlternateSetting)
 {
   if (AlternateSetting > 0)
   {
     return USB_UNSUPPORT;
   }
-  else if (Interface > 1)
+  else if (Interface > 0)
   {
     return USB_UNSUPPORT;
   }
@@ -381,38 +377,37 @@ RESULT Virtual_Com_Port_Get_Interface_Setting(uint8_t Interface, uint8_t Alterna
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_GetLineCoding.
-* Description    : send the linecoding structure to the PC host.
-* Input          : Length.
+* Function Name  : CustomHID_SetProtocol
+* Description    : Joystick Set Protocol request routine.
+* Input          : None.
 * Output         : None.
-* Return         : Linecoding structure base address.
+* Return         : USB SUCCESS.
 *******************************************************************************/
-uint8_t *Virtual_Com_Port_GetLineCoding(uint16_t Length)
+RESULT CustomHID_SetProtocol(void)
 {
-  if (Length == 0)
-  {
-    pInformation->Ctrl_Info.Usb_wLength = sizeof(linecoding);
-    return NULL;
-  }
-  return(uint8_t *)&linecoding;
+  u8 wValue0 = pInformation->USBwValue0;
+  ProtocolValue = wValue0;
+  return USB_SUCCESS;
 }
 
 /*******************************************************************************
-* Function Name  : Virtual_Com_Port_SetLineCoding.
-* Description    : Set the linecoding structure fields.
+* Function Name  : CustomHID_GetProtocolValue
+* Description    : get the protocol value
 * Input          : Length.
 * Output         : None.
-* Return         : Linecoding structure base address.
+* Return         : address of the protcol value.
 *******************************************************************************/
-uint8_t *Virtual_Com_Port_SetLineCoding(uint16_t Length)
+u8 *CustomHID_GetProtocolValue(u16 Length)
 {
   if (Length == 0)
   {
-    pInformation->Ctrl_Info.Usb_wLength = sizeof(linecoding);
+    pInformation->Ctrl_Info.Usb_wLength = 1;
     return NULL;
   }
-  return(uint8_t *)&linecoding;
+  else
+  {
+    return (u8 *)(&ProtocolValue);
+  }
 }
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
+/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/

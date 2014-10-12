@@ -1,8 +1,6 @@
 #include "stm32f10x.h"
 #include "hw_config.h"
 #include "usb_lib.h"
-#include "usb_desc.h"
-#include "usb_pwr.h"
 #include <string.h>
 #include "stdio.h"
 #include "delay.h"
@@ -12,8 +10,7 @@
 #include "flash.h"
 #include <stdlib.h>
 
-unsigned char USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE]; /* Send Buffer: 64 Bytes*/
-
+uint8_t Receive_Buffer[64];
 //__IO uint16_t CCR1_Val = 0x0;
 LED5050 LED;
 uint8_t NixieTube_EN = 1;
@@ -22,21 +19,7 @@ uint8_t AutoPowerOff = 0;
 void GPIO_Configuration(void);
 void TIM3_Configuration();
 
-void SendString(const unsigned char *string) {
-    strcpy(USB_Tx_Buffer, string);
-    UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, strlen(string)); /* Send Data */
-    SetEPTxCount(ENDP1, strlen(string));
-    SetEPTxValid(ENDP1);
-    while (!((_GetENDPOINT(ENDP1) & EPTX_STAT) == EP_TX_NAK));
-}
 
-void SendMessage(const unsigned char *message, size_t length) {
-    memcpy(USB_Tx_Buffer, message, length);
-    UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, length); /* Send Data */
-    SetEPTxCount(ENDP1, length);
-    SetEPTxValid(ENDP1);
-    while (!((_GetENDPOINT(ENDP1) & EPTX_STAT) == EP_TX_NAK));
-}
 
 void SPEAKER_BEEP_ONE() {
     TIM_SetCompare2(TIM2, 250 * 0.5);
@@ -44,6 +27,22 @@ void SPEAKER_BEEP_ONE() {
     TIM_SetCompare2(TIM2, 250 * 0);
 
 }
+
+void SendString(const unsigned char *string) {
+
+}
+
+
+
+void EP1_OUT_Callback(void)
+{
+	u8 DataLen;
+	DataLen = GetEPRxCount(ENDP1);
+	PMAToUserBufferCopy(Receive_Buffer, ENDP1_RXADDR, DataLen);
+	SetEPRxValid(ENDP1);
+    if (Receive_Buffer[0] == '1') SPEAKER_BEEP_ONE();
+} 
+
 
 void PWM_Configuration() {
 
