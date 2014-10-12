@@ -52,13 +52,13 @@ void USART1_IRQHandler(void) {
     if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
 
         //USART_To_USB_Send_Data();
-        USART_Terminal();
+        //USART_Terminal();
         USART_ClearITPendingBit(USART1, USART_IT_RXNE);
 
     }
 
     if (USART_GetFlagStatus(USART1, USART_FLAG_ORE) != RESET) {
-        (void) USART_ReceiveData(USART1);
+        //(void) USART_ReceiveData(USART1);
     }
 }
 
