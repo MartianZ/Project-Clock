@@ -36,8 +36,8 @@
 #define CUSTOMHID_SIZ_CONFIG_DESC               41
 #define CUSTOMHID_SIZ_REPORT_DESC               39
 #define CUSTOMHID_SIZ_STRING_LANGID             4
-#define CUSTOMHID_SIZ_STRING_VENDOR             64
-#define CUSTOMHID_SIZ_STRING_PRODUCT            28
+#define CUSTOMHID_SIZ_STRING_VENDOR             50
+#define CUSTOMHID_SIZ_STRING_PRODUCT            20
 #define CUSTOMHID_SIZ_STRING_SERIAL             26
 
 #define STANDARD_ENDPOINT_DESC_SIZE             0x09

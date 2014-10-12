@@ -36,10 +36,10 @@ const u8 CustomHID_DeviceDescriptor[CUSTOMHID_SIZ_DEVICE_DESC] =
     0x00,                       /*bDeviceSubClass*/
     0x00,                       /*bDeviceProtocol*/
     0x40,                       /*bMaxPacketSize40*/
-    0x83,                       /*idVendor (0x0483)*/
+    0xB3,                       /*idVendor (0x04B3)*/
     0x04,
-    0x50,                       /*idProduct = 0x5750*/
-    0x57,
+    0x34,                       /*idProduct = 0x5750*/
+    0x12,
     0x00,                       /*bcdDevice rel. 2.00*/
     0x02,
     1,                          /*Index of string descriptor describing
@@ -67,7 +67,7 @@ const u8 CustomHID_ConfigDescriptor[CUSTOMHID_SIZ_CONFIG_DESC] =
     0x00,         /* iConfiguration: Index of string descriptor describing
                                  the configuration*/
     0xC0,         /* bmAttributes: Bus powered */
-    0x32,         /* MaxPower 100 mA: this current is used for detecting Vbus */
+    0x0A,         /* MaxPower 100 mA: this current is used for detecting Vbus */
 
     /************** Descriptor of Custom HID interface ****************/
     /* 09 */
@@ -153,37 +153,12 @@ const u8 CustomHID_StringVendor[CUSTOMHID_SIZ_STRING_VENDOR] =
   {
     CUSTOMHID_SIZ_STRING_VENDOR, /* Size of Vendor string */
     USB_STRING_DESCRIPTOR_TYPE,  /* bDescriptorType*/
-    0xd8, 0x98, //飘
-0x6c, 0x62, //扬
-0xe5, 0x5d, //工
-0x5c, 0x4f, //作
-0xa4, 0x5b, //室
-0x68, 0x00, //h
-0x74, 0x00, //t
-0x74, 0x00, //t
-0x70, 0x00, //p
-0x3a, 0x00, //:
-0x2f, 0x00, ///
-0x2f, 0x00, ///
-0x62, 0x00, //b
-0x6c, 0x00, //l
-0x6f, 0x00, //o
-0x67, 0x00, //g
-0x2e, 0x00, //.
-0x63, 0x00, //c
-0x73, 0x00, //s
-0x64, 0x00, //d
-0x6e, 0x00, //n
-0x2e, 0x00, //.
-0x6e, 0x00, //n
-0x65, 0x00, //e
-0x74, 0x00, //t
-0x2f, 0x00, ///
-0x63, 0x00, //c
-0x79, 0x00, //y
-0x37, 0x00, //7
-0x35, 0x00, //5
-0x37, 0x00, //7
+    'U', 0, 'E', 0, 'S', 0,'T', 0,'C', 0,
+    ' ', 0, '-', 0, ' ', 0, 
+    'S', 0, 'c', 0, 'h', 0,'o', 0,'o', 0,'l', 0,
+    ' ', 0,
+    'o', 0,'f', 0,' ', 0, 'M', 0,'E', 0, '&', 0,'S', 0,'S', 0,'E', 0
+
 
   };
 
@@ -191,26 +166,14 @@ const u8 CustomHID_StringProduct[CUSTOMHID_SIZ_STRING_PRODUCT] =
   {
     CUSTOMHID_SIZ_STRING_PRODUCT,          /* bLength */
     USB_STRING_DESCRIPTOR_TYPE,        /* bDescriptorType */
-    0xea, 0x81, //自
-0x9a, 0x5b, //定
-0x49, 0x4e, //义
-0x84, 0x76, //的
-0x55, 0x00, //U
-0x53, 0x00, //S
-0x42, 0x00, //B
-0x20, 0x00, // 
-0x48, 0x00, //H
-0x49, 0x00, //I
-0x44, 0x00, //D
-0xbe, 0x8b, //设
-0x07, 0x59, //备
+    'N', 0, 'i', 0, 'x', 0, 'i', 0, 'e', 0, 'T', 0, 'u', 0, 'b', 0, 'e', 0
 
   };
 u8 CustomHID_StringSerial[CUSTOMHID_SIZ_STRING_SERIAL] =
   {
     CUSTOMHID_SIZ_STRING_SERIAL,           /* bLength */
     USB_STRING_DESCRIPTOR_TYPE,        /* bDescriptorType */
-    'S', 0, 'T', 0, 'M', 0,'3', 0,'2', 0, '1', 0, '0', 0
+    'U', 0, 'E', 0, 'S', 0,'T', 0,'C', 0
   };
 
 /******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
