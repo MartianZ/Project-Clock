@@ -31,6 +31,8 @@ void SPEAKER_BEEP_ONE() {
 }
 
 void SendString(const unsigned char *string) {
+    
+    TIM_Cmd(TIM3, DISABLE);
     unsigned char str[64];
     memset(str, '\0', sizeof(unsigned char)*64);
     memcpy(str, string, strlen(string) > 64 ? 64 : strlen(string));
@@ -42,6 +44,7 @@ void SendString(const unsigned char *string) {
     IWDG_ReloadCounter();
     while (GetEPTxStatus(ENDP1) == EP_TX_VALID);
     IWDG_ReloadCounter();
+    TIM_Cmd(TIM3, ENABLE);
 }
 
 
@@ -50,6 +53,7 @@ void EP1_OUT_Callback(void)
 {
 	uint8_t DataLen, i;
     
+    TIM_Cmd(TIM3, DISABLE);
 	DataLen = GetEPRxCount(ENDP1);
 	PMAToUserBufferCopy(Receive_Buffer, ENDP1_RXADDR, DataLen);
 	SetEPRxValid(ENDP1);
@@ -59,6 +63,7 @@ void EP1_OUT_Callback(void)
         if (!Receive_Buffer[i]) break;
         USART_Terminal(Receive_Buffer[i]);
     }
+    TIM_Cmd(TIM3, ENABLE);
 } 
 
 
