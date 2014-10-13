@@ -49,7 +49,7 @@
        <string>Calibrate NixieTube Clock Time</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btn_en_dis_nixietube">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -62,7 +62,7 @@
        <string>Enable / Disable NixieTube</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="btn_en_dis_aoff">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -75,7 +75,7 @@
        <string>Enable / Disable Automatically turn off NixieTube between 0:00 to 7:00</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="btn_rgb">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -88,7 +88,7 @@
        <string>Set LED R.G.B Brightness</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox">
+     <widget class="QSpinBox" name="text_r">
       <property name="geometry">
        <rect>
         <x>25</x>
@@ -100,8 +100,14 @@
       <property name="focusPolicy">
        <enum>Qt::ClickFocus</enum>
       </property>
+      <property name="maximum">
+       <number>99</number>
+      </property>
+      <property name="value">
+       <number>70</number>
+      </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_2">
+     <widget class="QSpinBox" name="text_g">
       <property name="geometry">
        <rect>
         <x>85</x>
@@ -114,7 +120,7 @@
        <enum>Qt::ClickFocus</enum>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_3">
+     <widget class="QSpinBox" name="text_b">
       <property name="geometry">
        <rect>
         <x>145</x>
@@ -125,6 +131,9 @@
       </property>
       <property name="focusPolicy">
        <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="value">
+       <number>50</number>
       </property>
      </widget>
     </widget>
