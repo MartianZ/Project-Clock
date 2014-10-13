@@ -100,7 +100,7 @@ const u8 CustomHID_ConfigDescriptor[CUSTOMHID_SIZ_CONFIG_DESC] =
     0x03,          /* bmAttributes: Interrupt endpoint */
     0x40,          /* wMaxPacketSize: 64 Bytes max */
     0x00,
-    0x20,          /* bInterval: Polling Interval (32 ms) */
+    0x02,          /* bInterval: Polling Interval (32 ms) */
     /* 34 */
     	
     0x07,	/* bLength: Endpoint Descriptor size */
@@ -111,7 +111,7 @@ const u8 CustomHID_ConfigDescriptor[CUSTOMHID_SIZ_CONFIG_DESC] =
     0x03,	/* bmAttributes: Interrupt endpoint */
     0x40,	/* wMaxPacketSize: 64 Bytes max  */
     0x00,
-    0x20,	/* bInterval: Polling Interval (20 ms) */
+    0x02,	/* bInterval: Polling Interval (20 ms) */
     /* 41 */
   }
   ; /* CustomHID_ConfigDescriptor */
