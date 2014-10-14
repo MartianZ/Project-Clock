@@ -100,7 +100,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Enable / Disable Automatically turn off NixieTube between 0:00 to 7:00</string>
+       <string>Enable / Disable automatically turn off NixieTube between 0:00 to 7:00</string>
       </property>
      </widget>
      <widget class="QPushButton" name="btn_rgb">
