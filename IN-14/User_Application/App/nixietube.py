@@ -24,6 +24,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
         self.btn_en_dis_nixietube.clicked.connect(self.btn_en_dis_nixietube_clicked)
         self.btn_en_dis_aoff.clicked.connect(self.btn_en_dis_aoff_clicked)
         self.btn_rgb.clicked.connect(self.btn_rgb_clicked)
+        self.btn_dfu_upload.clicked.connect(self.btn_dfu_upload_clicked)
 
         self.connection_status = 0
         self.setFixedSize(self.size())
@@ -50,6 +51,29 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
                                 return dev, config, alt
         raise ValueError, "Device not found"
 
+    def btn_dfu_upload_clicked(self):
+        if self.connection_status != 2:
+            return
+        dev, config, intf = self.get_dfu_device()
+        print "Device:", dev.filename
+        print "Configuration", config.value
+        print "Interface", intf.interfaceNumber
+        dfu = DFU_STM32(dev, config, intf)
+        print dfu.ll_get_string(intf.iInterface)
+        s = dfu.ll_get_status()
+        if s[4] == STATE_DFU_ERROR:
+            dfu.ll_clear_status()
+        s = dfu.ll_get_status()
+        print s
+        if s[4] == STATE_DFU_IDLE:
+            exit
+        transfer_size = 1024
+        if s[0] != DFU_STATUS_OK:
+            print s
+            exit
+        ih = intel_hex(self.edt_dfu_filename.text())
+        dfu.download(ih)
+        dfu.verify(ih)
 
     def timer_one(self):
         sender = self.sender()
