@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>571</width>
-    <height>265</height>
+    <height>260</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,19 +18,22 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>60</y>
       <width>551</width>
-      <height>181</height>
+      <height>171</height>
      </rect>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab1">
      <attribute name="title">
@@ -141,6 +144,68 @@
      <attribute name="title">
       <string>Device Firmware Upgrade</string>
      </attribute>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>13</x>
+        <y>30</y>
+        <width>140</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select new firmware:</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="geometry">
+       <rect>
+        <x>13</x>
+        <y>86</y>
+        <width>401</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>153</x>
+        <y>30</y>
+        <width>261</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>26</y>
+        <width>114</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>80</y>
+        <width>114</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Write!</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QLabel" name="lbl_device_status">
