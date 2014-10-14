@@ -162,7 +162,7 @@
        <rect>
         <x>13</x>
         <y>86</y>
-        <width>401</width>
+        <width>341</width>
         <height>20</height>
        </rect>
       </property>
@@ -170,7 +170,7 @@
        <number>0</number>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="edt_dfu_filename">
       <property name="geometry">
        <rect>
         <x>153</x>
@@ -179,8 +179,11 @@
         <height>21</height>
        </rect>
       </property>
+      <property name="text">
+       <string>/Users/MartianZ/Documents/NixieTube-Clock/IN-14/STM32_C8_NixieTube/main.hex</string>
+      </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btn_dfu_open">
       <property name="geometry">
        <rect>
         <x>420</x>
@@ -193,17 +196,17 @@
        <string>Open</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btn_dfu_upload">
       <property name="geometry">
        <rect>
-        <x>420</x>
+        <x>363</x>
         <y>80</y>
-        <width>114</width>
+        <width>171</width>
         <height>32</height>
        </rect>
       </property>
       <property name="text">
-       <string>Write!</string>
+       <string>Upload New Firmware</string>
       </property>
      </widget>
     </widget>
