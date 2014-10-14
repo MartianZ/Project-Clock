@@ -6,7 +6,7 @@
 *.hex
 *.bin
 *.elf
-
+*.pyc
 # Precompiled Headers
 *.gch
 *.pch
