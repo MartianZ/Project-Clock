@@ -44,9 +44,7 @@ uint16_t (*pMAL_Write) (uint32_t SectorAddress, uint32_t DataLength);
 uint8_t  *(*pMAL_Read)  (uint32_t SectorAddress, uint32_t DataLength);
 uint8_t  MAL_Buffer[wTransferSize]; /* RAM Buffer for Downloaded Data */
 
-#if !defined(STM32L1XX_MD) && !defined(STM32L1XX_HD) && !defined(STM32L1XX_MD_PLUS)&& !defined (USE_STM32373C_EVAL) && !defined (USE_STM32303C_EVAL)
-  NOR_IDTypeDef NOR_ID;
-#endif /* STM32L1XX_XD */
+
 
 extern ONE_DESCRIPTOR DFU_String_Descriptor[7];
 

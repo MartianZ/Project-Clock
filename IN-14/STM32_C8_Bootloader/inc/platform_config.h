@@ -42,9 +42,7 @@
  #endif /* USE_STM32L152_EVAL */
 #elif defined (STM32F10X_MD) || defined (STM32F10X_HD) || defined (STM32F10X_XL)
  #include "stm32f10x.h"
- #include "spi_if.h"
- #include "nor_if.h"
- #include "fsmc_nor.h"
+
  #if defined (USE_STM3210B_EVAL)
   //#include "stm3210b_eval.h"
   //#include "stm3210b_eval_spi_flash.h"
