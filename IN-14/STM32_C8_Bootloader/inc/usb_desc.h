@@ -48,7 +48,7 @@
 #define DFU_SIZ_STRING_VENDOR           38
 #define DFU_SIZ_STRING_PRODUCT          20
 #define DFU_SIZ_STRING_SERIAL           26
-#define DFU_SIZ_STRING_INTERFACE0       98    /* Flash Bank 0 */
+#define DFU_SIZ_STRING_INTERFACE0       94    /* Flash Bank 0 */
 
 #define DFU_SIZ_STRING_INTERFACE1       98     /* SPI Flash : M25P64*/
 #define DFU_SIZ_STRING_INTERFACE2       106    /* NOR Flash : M26M128*/
