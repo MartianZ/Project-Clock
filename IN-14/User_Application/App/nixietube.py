@@ -64,7 +64,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
                     x.append(ord(c))
                 h.write(x)
                 while 1:
-                    data = h.read(64, 1000)
+                    data = h.read(64, 500)
                     if data:
                         sys.stdout.write(''.join(chr(i) for i in data))
                         sys.stdout.flush()
@@ -134,7 +134,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
                     x.append(ord(c))
                 h.write(x)
                 while 1:
-                    data = h.read(64, 1000)
+                    data = h.read(64, 500)
                     if data:
                         sys.stdout.write(''.join(chr(i) for i in data))
                         sys.stdout.flush()
