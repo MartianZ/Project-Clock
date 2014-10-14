@@ -31,10 +31,13 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
         sender = self.sender()
         d = hid.enumerate(0x04b3, 0x1234)
 
+
         if len(d) > 0:
             self.lbl_device_status.setText("Device: <font color=green><b>Connceted[Normal]</b></font>")
             self.lbl_device_status.adjustSize()
             self.connection_status = 1
+            self.tab1.setEnabled(True)
+            self.tab2.setEnabled(False)
             return
         #todo:dfu
         #if len(d) > 0:
@@ -44,6 +47,9 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
         self.lbl_device_status.setText("Device: <b>Unconnected</b>")
         self.lbl_device_status.adjustSize()
         self.connection_status = 0
+        self.tab1.setEnabled(False)
+        self.tab2.setEnabled(False)
+
             
     def btn_ctime_clicked(self):
         self.btn_ctime.setText("Sending instructions...")
