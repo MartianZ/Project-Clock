@@ -110,7 +110,7 @@ class DFU_STM32(object):
         self.__protocol = interface.interfaceProtocol
         self.__devhandle = device.open()
         if self.__devhandle is None:
-            raise ValueError("Error: Unable to open device!")
+            raise ValueError, "Error: Unable to open device!"
         #self.__devhandle.setConfiguration(configuration)
         self.__devhandle.claimInterface(interface)
         self.__devhandle.setAltInterface(0)
