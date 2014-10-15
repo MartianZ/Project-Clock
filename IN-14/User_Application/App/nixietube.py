@@ -112,7 +112,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
                 h.open(0x04b3, 0x1234)
                 s = time.strftime("cs%Scm%Mch%Hcy%yco%mcd%d",time.localtime(time.time()))
                 print s
-                x = []
+                x = [0x0]
                 for c in s:
                     x.append(ord(c))
                 h.write(x)
@@ -137,7 +137,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
             try:
                 h = hid.device()
                 h.open(0x04b3, 0x1234)
-                h.write([ord('e')])
+                h.write([0x0, ord('e')])
                 while 1:
                     data = h.read(64, 100)
                     if data:
@@ -158,7 +158,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
             try:
                 h = hid.device()
                 h.open(0x04b3, 0x1234)
-                h.write([ord('z')])
+                h.write([0x0, ord('z')])
                 while 1:
                     data = h.read(64, 100)
                     if data:
@@ -182,7 +182,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
             try:
                 h = hid.device()
                 h.open(0x04b3, 0x1234)
-                x = []
+                x = [0x0]
                 for c in s:
                     x.append(ord(c))
                 h.write(x)
