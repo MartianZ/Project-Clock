@@ -171,7 +171,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
             except ex:
                 print ex
             finally:
-                self.btn_en_dis_aoff.setText("Enable / Disable Automatically turn off NixieTube between 0:00 to 7:00")
+                self.btn_en_dis_aoff.setText("Enable / Disable automatically turn off NixieTube between 0:00 to 7:00")
 
     def btn_rgb_clicked(self):
         self.btn_rgb.setText("Sending instructions...")
