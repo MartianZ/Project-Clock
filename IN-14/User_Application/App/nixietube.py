@@ -34,33 +34,20 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
 
 
     def get_dfu_device(self):
-        busses = usb.busses()
-        for bus in busses:
-            devices = bus.devices
-            for dev in devices:
-                if dev.idVendor != 0x0001:
-                    continue
-                if dev.idProduct != 0xdf11:
-                    continue
-                for config in dev.configurations:
-                    for intf in config.interfaces:
-                        for alt in intf:
-                            if alt.interfaceClass == DFU_CLASS and \
-                                    alt.interfaceSubClass == DFU_SUBCLASS and \
-                                    (alt.interfaceProtocol == DFU_STM32PROTOCOL_0 or \
-                                         alt.interfaceProtocol == DFU_STM32PROTOCOL_2):
-                                return dev, config, alt
-        raise ValueError, "Device not found"
+        pass
 
     def btn_dfu_upload_clicked(self):
         if self.connection_status != 2:
             return
-        dev, config, intf = self.get_dfu_device()
-        print "Device:", dev.filename
-        print "Configuration", config.value
-        print "Interface", intf.interfaceNumber
-        dfu = DFU_STM32(dev, config, intf)
-        print dfu.ll_get_string(intf.iInterface)
+        b = usb.backend.libusb1.get_backend() #get_backend(find_library=lambda C: "\libusb-1.0.dll")
+        dev = usb.core.find(backend=b, idVendor=0x0001, idProduct=0xdf11)
+        if dev is None:
+            raise ValueError, "Device not found"
+        dev.set_configuration()
+        cfg = dev.get_active_configuration()
+        intf = cfg[(0,0)]
+        dfu = DFU_STM32(dev, cfg, intf)
+
         s = dfu.ll_get_status()
         if s[4] == STATE_DFU_ERROR:
             dfu.ll_clear_status()
@@ -72,6 +59,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
         if s[0] != DFU_STATUS_OK:
             print s
             exit
+
         ih = intel_hex(self.edt_dfu_filename.text())
         dfu.download(ih)
         dfu.verify(ih)

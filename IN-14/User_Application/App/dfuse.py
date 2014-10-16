@@ -1,6 +1,14 @@
 #! /usr/bin/python
 
 """
+Modified by MartianZ
+2014-10-16
+
+Rewrite for PyUSB 1.0+ Version
+
+"""
+
+"""
 dfuse.py - DFU (Device Firmware Upgrade) tool for STM32 Processor.
 "SE" in DfuSe stands for "STmicroelectronics Extention".
 
@@ -23,6 +31,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+
 from intel_hex import *
 import sys, time, struct
 
@@ -41,6 +50,7 @@ import sys, time, struct
 # See: AN3156 by STMicroelectronics
 
 import usb
+import usb.util as util
 
 # check string descriptor in interrface descriptor in config descriptor: iInterface
 
@@ -103,63 +113,66 @@ class DFU_STM32(object):
         configuration: configuration number.
         interface: usb.Interface object representing the interface and altenate setting.
         """
-        if interface.interfaceClass != DFU_CLASS:
+        if interface.bInterfaceClass != DFU_CLASS:
             raise ValueError, "Wrong interface class"
-        if interface.interfaceSubClass != DFU_SUBCLASS:
+        if interface.bInterfaceSubClass != DFU_SUBCLASS:
             raise ValueError, "Wrong interface sub class"
-        self.__protocol = interface.interfaceProtocol
-        self.__devhandle = device.open()
-        if self.__devhandle is None:
-            raise ValueError, "Error: Unable to open device!"
-        #self.__devhandle.setConfiguration(configuration)
-        self.__devhandle.claimInterface(interface)
-        self.__devhandle.setAltInterface(0)
 
-        self.__intf = interface.interfaceNumber
-        self.__alt = interface.alternateSetting
-        self.__conf = configuration
+        self.__protocol = interface.bInterfaceProtocol
+        
+
+
+
+        #self.__devhandle = device.open()
+        #if self.__devhandle is None:
+        #    raise ValueError, "Error: Unable to open device!"
+        
+
+        #self.__devhandle.setConfiguration(configuration)
+        #self.__devhandle.claimInterface(interface)
+        #self.__devhandle.setAltInterface(0)
+        self.__dev = device
+        self.__intf = interface.bInterfaceNumber
+        self.__alt = interface.bAlternateSetting
+        #self.__conf = configuration
         # Initialize members
         self.__blocknum = 0
 
     def ll_getdev(self):
         return self.__devhandle
 
-    def ll_get_string(self, index):
-        # specify buffer length for 80
-        return self.__devhandle.getString(index, 80)
-
     def ll_get_status(self):
         # Status, PollTimeout[3], State, String
-        return self.__devhandle.controlMsg(requestType = 0xa1,
-                                           request = DFU_GETSTATUS,
-                                           value = 0,
-                                           index = self.__intf,
-                                           buffer = 6,
+        return self.__dev.ctrl_transfer(0xa1,
+                                           DFU_GETSTATUS,
+                                           wValue = 0,
+                                           wIndex = self.__intf,
+                                           data_or_wLength = 6,
                                            timeout = 3000000)
 
     def ll_clear_status(self):
-        return self.__devhandle.controlMsg(requestType = 0x21,
-                                           request = DFU_CLRSTATUS,
-                                           value = 0,
-                                           index = self.__intf,
-                                           buffer = None)
+        return self.__dev.ctrl_transfer(0x21,
+                                           DFU_CLRSTATUS,
+                                           wValue = 0,
+                                           wIndex = self.__intf,
+                                           data_or_wLength = None)
 
     # Upload: TARGET -> HOST
     def ll_upload_block(self, block_num):
-        return self.__devhandle.controlMsg(requestType = 0xa1,
-                                           request = DFU_UPLOAD,
-                                           value = block_num,
-                                           index = self.__intf,
-                                           buffer = 1024,
+        return self.__dev.ctrl_transfer(0xa1,
+                                           DFU_UPLOAD,
+                                           wValue = block_num,
+                                           wIndex = self.__intf,
+                                           data_or_wLength = 1024,
                                            timeout = 3000000)
 
     # Download: HOST -> TARGET
     def ll_download_block(self, block_num, block):
-        return self.__devhandle.controlMsg(requestType = 0x21,
-                                           request = DFU_DNLOAD,
-                                           value = block_num,
-                                           index = self.__intf,
-                                           buffer = block)
+        return self.__dev.ctrl_transfer(0x21,
+                                           DFU_DNLOAD,
+                                           wValue = block_num,
+                                           wIndex = self.__intf,
+                                           data_or_wLength = block)
 
     def dfuse_read_memory(self):
         blocknum = self.__blocknum
