@@ -7,6 +7,7 @@ import time
 import usb
 from dfuse import *
 from intel_hex import *
+import usb.backend.libusb1
 
 
 form_class = uic.loadUiType("nixietube.ui")[0]
@@ -88,7 +89,8 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
             self.tab2.setEnabled(False)
             return
 
-        dev = usb.core.find(idVendor=0x0001, idProduct=0xdf11)
+        b = usb.backend.libusb1.get_backend() #get_backend(find_library=lambda C: "\libusb-1.0.dll")
+        dev = usb.core.find(backend=b, idVendor=0x0001, idProduct=0xdf11)
         if dev is not None:
             self.lbl_device_status.setText("Device: <font color=red><b>Connceted[DFU]</b></font>")
             self.lbl_device_status.adjustSize()
