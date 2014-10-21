@@ -31,4 +31,4 @@
 *.hex
 
 *.bin
-.idea/*
+IN-14/User_Application/App/.idea/*
