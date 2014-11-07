@@ -8,11 +8,10 @@ import usb
 from dfuse import *
 from intel_hex import *
 import usb.backend.libusb1
+from ui import Ui_MainWindow
 
 
-form_class = uic.loadUiType("nixietube.ui")[0]
-
-class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
+class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(NixieTubeMainWindow, self).__init__()
         self.setupUi(self)
