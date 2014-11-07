@@ -14,6 +14,7 @@ from ui import Ui_MainWindow
 class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(NixieTubeMainWindow, self).__init__()
+
         self.setupUi(self)
 
         self.timer = QtCore.QTimer(self)
@@ -21,6 +22,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.timer.start(300)
 
         self.btn_ctime.clicked.connect(self.btn_ctime_clicked)
+        #self.btn_ctime.setStyleSheet("")
         self.btn_en_dis_nixietube.clicked.connect(self.btn_en_dis_nixietube_clicked)
         self.btn_en_dis_aoff.clicked.connect(self.btn_en_dis_aoff_clicked)
         self.btn_rgb.clicked.connect(self.btn_rgb_clicked)
@@ -92,7 +94,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.tab1.setEnabled(False)
         self.tab2.setEnabled(False)
 
-            
+
     def btn_ctime_clicked(self):
         self.btn_ctime.setText("Sending instructions...")
         if self.connection_status == 1:
@@ -113,7 +115,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     else:
                         break
                 h.close()
-                
+
                 QtGui.QMessageBox.information(self, 'Message', "Successfully calibrate NixieTube clock time!", QtGui.QMessageBox.Yes, QtGui.QMessageBox.Yes)
             except ex:
                 print ex
@@ -135,7 +137,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     else:
                         break
                 h.close()
-                
+
             except ex:
                 print ex
             finally:
@@ -156,7 +158,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     else:
                         break
                 h.close()
-                
+
             except ex:
                 print ex
             finally:
@@ -193,8 +195,13 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 
 def main():
-    
+    css = """
+        QMainWindow {background: white;}
+        QEdit {border: 1px solid #eee;height: 30px;}
+        QPushButton {padding:5px 0;border:0px;background-color: #26b9a5;color:white;}
+    """
     app = QtGui.QApplication(sys.argv)
+    app.setStyleSheet(css)
     ex = NixieTubeMainWindow()
     sys.exit(app.exec_())
 
