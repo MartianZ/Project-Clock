@@ -21,16 +21,16 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
         self.timer.timeout.connect(self.timer_one)
         self.timer.start(300)
 
-        self.btn_ctime.clicked.connect(self.btn_ctime_clicked)
+        #self.btn_ctime.clicked.connect(self.btn_ctime_clicked)
         #self.btn_ctime.setStyleSheet("")
-        self.btn_en_dis_nixietube.clicked.connect(self.btn_en_dis_nixietube_clicked)
-        self.btn_en_dis_aoff.clicked.connect(self.btn_en_dis_aoff_clicked)
-        self.btn_rgb.clicked.connect(self.btn_rgb_clicked)
-        self.btn_dfu_upload.clicked.connect(self.btn_dfu_upload_clicked)
+        #self.btn_en_dis_nixietube.clicked.connect(self.btn_en_dis_nixietube_clicked)
+        #self.btn_en_dis_aoff.clicked.connect(self.btn_en_dis_aoff_clicked)
+        #self.btn_rgb.clicked.connect(self.btn_rgb_clicked)
+        #self.btn_dfu_upload.clicked.connect(self.btn_dfu_upload_clicked)
 
         self.connection_status = 0
-        self.setFixedSize(self.size())
-        self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.WindowTitleHint | QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
+        #self.setFixedSize(self.size())
+        #self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.WindowTitleHint | QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
 
         self.show()
 
@@ -195,8 +195,11 @@ class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
                 self.btn_rgb.setText("Set LED R.G.B Brightness")
 
 
+    
+    
 def main():
     app = QtGui.QApplication(sys.argv)
+    ex = NixieTubeMainWindow()
 
     if platform.system()=='Darwin':
         _release,_versioninfo,_machine=platform.mac_ver()
@@ -206,8 +209,14 @@ def main():
             font-family: Lucida Grande;
         } """
         app.setStyleSheet(css)
+    if platform.system()=='Windows':
+        css = """
+        * {
+            font-family: Microsoft Yahei;
+        } """
+        app.setStyleSheet(css) 
 
-    ex = NixieTubeMainWindow()
+    
     sys.exit(app.exec_())
 
 
