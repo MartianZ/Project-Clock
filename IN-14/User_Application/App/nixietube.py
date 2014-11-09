@@ -9,9 +9,9 @@ from dfuse import *
 from intel_hex import *
 import usb.backend.libusb1
 from ui import Ui_MainWindow
-
-
-class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
+import platform
+form_class = uic.loadUiType("nixietube.ui")[0]
+class NixieTubeMainWindow(QtGui.QMainWindow, form_class):
     def __init__(self):
         super(NixieTubeMainWindow, self).__init__()
 
@@ -31,6 +31,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.connection_status = 0
         self.setFixedSize(self.size())
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.WindowTitleHint | QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
+
         self.show()
 
 
@@ -75,7 +76,7 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.lbl_device_status.adjustSize()
             self.connection_status = 1
             self.tab1.setEnabled(True)
-            self.tab2.setEnabled(False)
+            #self.tab2.setEnabled(False)
             return
 
         b = usb.backend.libusb1.get_backend() #get_backend(find_library=lambda C: "\libusb-1.0.dll")
@@ -84,15 +85,15 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.lbl_device_status.setText("Device: <font color=red><b>Connceted[DFU]</b></font>")
             self.lbl_device_status.adjustSize()
             self.connection_status = 2
-            self.tab1.setEnabled(False)
+            #self.tab1.setEnabled(False)
             self.tab2.setEnabled(True)
             return
 
         self.lbl_device_status.setText("Device: <b>Unconnected</b>")
         self.lbl_device_status.adjustSize()
         self.connection_status = 0
-        self.tab1.setEnabled(False)
-        self.tab2.setEnabled(False)
+        #self.tab1.setEnabled(False)
+        #self.tab2.setEnabled(False)
 
 
     def btn_ctime_clicked(self):
@@ -195,13 +196,17 @@ class NixieTubeMainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 
 def main():
-    css = """
-        QMainWindow {background: white;}
-        QEdit {border: 1px solid #eee;height: 30px;}
-        QPushButton {padding:5px 0;border:0px;background-color: #26b9a5;color:white;}
-    """
     app = QtGui.QApplication(sys.argv)
-    app.setStyleSheet(css)
+
+    if platform.system()=='Darwin':
+        _release,_versioninfo,_machine=platform.mac_ver()
+        if (_release=='10.9') or (_release=='10.10'): QtGui.QFont.insertSubstitution(r".Lucida Grande UI", r"Lucida Grande")
+        css = """
+        * {
+            font-family: Lucida Grande;
+        } """
+        app.setStyleSheet(css)
+
     ex = NixieTubeMainWindow()
     sys.exit(app.exec_())
 
