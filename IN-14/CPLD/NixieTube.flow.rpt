@@ -1,6 +1,6 @@
 Flow report for NixieTube
-Tue Jun 24 15:46:17 2014
-Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Full Version
+Mon Jan 12 20:42:38 2015
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
 
 
 ---------------------
@@ -13,43 +13,46 @@ Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Full Versi
   5. Flow Elapsed Time
   6. Flow OS Summary
   7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2011 Altera Corporation
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, Altera MegaCore Function License 
-Agreement, or other applicable license agreement, including, 
-without limitation, that your use is for the sole purpose of 
-programming logic devices manufactured by Altera and sold by 
-Altera or its authorized distributors.  Please refer to the 
-applicable agreement for further details.
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
 
 
 
-+----------------------------------------------------------------------------+
-; Flow Summary                                                               ;
-+---------------------------+------------------------------------------------+
-; Flow Status               ; Successful - Tue Jun 24 15:46:15 2014          ;
-; Quartus II 32-bit Version ; 11.1 Build 259 01/25/2012 SP 2 SJ Full Version ;
-; Revision Name             ; NixieTube                                      ;
-; Top-level Entity Name     ; NixieTube                                      ;
-; Family                    ; MAX II                                         ;
-; Device                    ; EPM240T100C5                                   ;
-; Timing Models             ; Final                                          ;
-; Total logic elements      ; 144 / 240 ( 60 % )                             ;
-; Total pins                ; 77 / 80 ( 96 % )                               ;
-; Total virtual pins        ; 0                                              ;
-; UFM blocks                ; 0 / 1 ( 0 % )                                  ;
-+---------------------------+------------------------------------------------+
++-------------------------------------------------------------------------+
+; Flow Summary                                                            ;
++---------------------------+---------------------------------------------+
+; Flow Status               ; Successful - Mon Jan 12 20:42:35 2015       ;
+; Quartus II 64-Bit Version ; 14.0.0 Build 200 06/17/2014 SJ Full Version ;
+; Revision Name             ; NixieTube                                   ;
+; Top-level Entity Name     ; NixieTube                                   ;
+; Family                    ; MAX II                                      ;
+; Device                    ; EPM240T100C5                                ;
+; Timing Models             ; Final                                       ;
+; Total logic elements      ; 146 / 240 ( 61 % )                          ;
+; Total pins                ; 79 / 80 ( 99 % )                            ;
+; Total virtual pins        ; 0                                           ;
+; UFM blocks                ; 0 / 1 ( 0 % )                               ;
++---------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -57,21 +60,21 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/24/2014 15:46:07 ;
+; Start date & time ; 01/12/2015 20:42:26 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; NixieTube           ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                 ;
-+------------------------+------------------------------+---------------+-------------+------------+
-; Assignment Name        ; Value                        ; Default Value ; Entity Name ; Section Id ;
-+------------------------+------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID  ; 113613069346.140359596707500 ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP ; 85                           ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP ; 0                            ; --            ; --          ; --         ;
-+------------------------+------------------------------+---------------+-------------+------------+
++-----------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                    ;
++------------------------+---------------------------------+---------------+-------------+------------+
+; Assignment Name        ; Value                           ; Default Value ; Entity Name ; Section Id ;
++------------------------+---------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID  ; 216075648254198.142106654610308 ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP ; 85                              ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP ; 0                               ; --            ; --          ; --         ;
++------------------------+---------------------------------+---------------+-------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -79,11 +82,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 286 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:03     ; 1.0                     ; 332 MB              ; 00:00:02                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 264 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 258 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:10     ; --                      ; --                  ; 00:00:07                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 509 MB              ; 00:00:01                           ;
+; Fitter                    ; 00:00:03     ; 1.0                     ; 849 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 464 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 452 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:07     ; --                      ; --                  ; 00:00:06                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -92,10 +95,10 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; MartianZ-PC      ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; MartianZ-PC      ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; MartianZ-PC      ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; MartianZ-PC      ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; MartianZ-ASUS    ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; MartianZ-ASUS    ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; MartianZ-ASUS    ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; MartianZ-ASUS    ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

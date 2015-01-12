@@ -1,11 +1,11 @@
-Fitter Status : Successful - Tue Jun 24 15:46:12 2014
-Quartus II 32-bit Version : 11.1 Build 259 01/25/2012 SP 2 SJ Full Version
+Fitter Status : Successful - Mon Jan 12 20:42:32 2015
+Quartus II 64-Bit Version : 14.0.0 Build 200 06/17/2014 SJ Full Version
 Revision Name : NixieTube
 Top-level Entity Name : NixieTube
 Family : MAX II
 Device : EPM240T100C5
 Timing Models : Final
-Total logic elements : 144 / 240 ( 60 % )
-Total pins : 77 / 80 ( 96 % )
+Total logic elements : 146 / 240 ( 61 % )
+Total pins : 79 / 80 ( 99 % )
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

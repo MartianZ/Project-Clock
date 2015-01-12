@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Tue Jun 24 15:46:08 2014
-Quartus II 32-bit Version : 11.1 Build 259 01/25/2012 SP 2 SJ Full Version
+Analysis & Synthesis Status : Successful - Mon Jan 12 20:42:27 2015
+Quartus II 64-Bit Version : 14.0.0 Build 200 06/17/2014 SJ Full Version
 Revision Name : NixieTube
 Top-level Entity Name : NixieTube
 Family : MAX II
-Total logic elements : 216
-Total pins : 77
+Total logic elements : 218
+Total pins : 79
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

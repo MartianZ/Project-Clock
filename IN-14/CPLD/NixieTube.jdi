@@ -1,7 +1,8 @@
 <sld_project_info>
+  <project>
+    <hash md5_digest_80b="604f30418693c1811314"/>
+  </project>
   <file_info>
-    <file checksum="0x00175091" device="EPM240T100C5" path="NixieTube.pof" usercode="0xFFFFFFFF"/>
+    <file device="EPM240T100C5" path="NixieTube.sof" usercode="0xFFFFFFFF"/>
   </file_info>
-  <hub_info ir_width="0" node_count="0"/>
-  <node_info/>
 </sld_project_info>
