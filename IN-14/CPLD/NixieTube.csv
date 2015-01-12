@@ -1,0 +1,101 @@
+# Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus II License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+# Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
+# File: C:\Users\MartianZ\Desktop\NixieTube.csv
+# Generated on: Mon Jan 12 20:42:21 2015
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus II software.
+
+To,Direction,Location,I/O Bank,Fitter Location,I/O Standard,Reserved,Current Strength
+clk,Input,PIN_12,1,PIN_12,,,
+clk_32k,Input,PIN_62,2,PIN_14,,,
+data,Input,PIN_98,2,PIN_98,,,
+en,Input,PIN_100,2,PIN_100,,,
+neon_pwm,Output,PIN_14,1,PIN_62,,,
+out[71],Output,PIN_8,1,PIN_8,,,
+out[70],Output,PIN_17,1,PIN_17,,,
+out[69],Output,PIN_18,1,PIN_18,,,
+out[68],Output,PIN_19,1,PIN_19,,,
+out[67],Output,PIN_7,1,PIN_7,,,
+out[66],Output,PIN_5,1,PIN_5,,,
+out[65],Output,PIN_3,1,PIN_3,,,
+out[64],Output,PIN_2,1,PIN_2,,,
+out[63],Output,PIN_4,1,PIN_4,,,
+out[62],Output,PIN_6,1,PIN_6,,,
+out[61],Output,PIN_16,1,PIN_16,,,
+out[60],Output,PIN_15,1,PIN_15,,,
+out[59],Output,PIN_21,1,PIN_21,,,
+out[58],Output,PIN_28,1,PIN_28,,,
+out[57],Output,PIN_29,1,PIN_29,,,
+out[56],Output,PIN_30,1,PIN_30,,,
+out[55],Output,PIN_33,1,PIN_33,,,
+out[54],Output,PIN_34,1,PIN_34,,,
+out[53],Output,PIN_35,1,PIN_35,,,
+out[52],Output,PIN_36,1,PIN_36,,,
+out[51],Output,PIN_37,1,PIN_37,,,
+out[50],Output,PIN_20,1,PIN_20,,,
+out[49],Output,PIN_27,1,PIN_27,,,
+out[48],Output,PIN_26,1,PIN_26,,,
+out[47],Output,PIN_48,1,PIN_48,,,
+out[46],Output,PIN_51,1,PIN_51,,,
+out[45],Output,PIN_38,1,PIN_38,,,
+out[44],Output,PIN_39,1,PIN_39,,,
+out[43],Output,PIN_40,1,PIN_40,,,
+out[42],Output,PIN_41,1,PIN_41,,,
+out[41],Output,PIN_42,1,PIN_42,,,
+out[40],Output,PIN_43,1,PIN_43,,,
+out[39],Output,PIN_44,1,PIN_44,,,
+out[38],Output,PIN_47,1,PIN_47,,,
+out[37],Output,PIN_50,1,PIN_50,,,
+out[36],Output,PIN_49,1,PIN_49,,,
+out[35],Output,PIN_57,2,PIN_57,,,
+out[34],Output,PIN_66,2,PIN_66,,,
+out[33],Output,PIN_67,2,PIN_67,,,
+out[32],Output,PIN_68,2,PIN_68,,,
+out[31],Output,PIN_69,2,PIN_69,,,
+out[30],Output,PIN_52,2,PIN_52,,,
+out[29],Output,PIN_53,2,PIN_53,,,
+out[28],Output,PIN_54,2,PIN_54,,,
+out[27],Output,PIN_55,2,PIN_55,,,
+out[26],Output,PIN_56,2,PIN_56,,,
+out[25],Output,PIN_61,2,PIN_61,,,
+out[24],Output,PIN_58,2,PIN_58,,,
+out[23],Output,PIN_78,2,PIN_78,,,
+out[22],Output,PIN_83,2,PIN_83,,,
+out[21],Output,PIN_70,2,PIN_70,,,
+out[20],Output,PIN_71,2,PIN_71,,,
+out[19],Output,PIN_72,2,PIN_72,,,
+out[18],Output,PIN_73,2,PIN_73,,,
+out[17],Output,PIN_74,2,PIN_74,,,
+out[16],Output,PIN_75,2,PIN_75,,,
+out[15],Output,PIN_76,2,PIN_76,,,
+out[14],Output,PIN_77,2,PIN_77,,,
+out[13],Output,PIN_82,2,PIN_82,,,
+out[12],Output,PIN_81,2,PIN_81,,,
+out[11],Output,PIN_89,2,PIN_89,,,
+out[10],Output,PIN_92,2,PIN_92,,,
+out[9],Output,PIN_95,2,PIN_95,,,
+out[8],Output,PIN_96,2,PIN_96,,,
+out[7],Output,PIN_97,2,PIN_97,,,
+out[6],Output,PIN_84,2,PIN_84,,,
+out[5],Output,PIN_85,2,PIN_85,,,
+out[4],Output,PIN_86,2,PIN_86,,,
+out[3],Output,PIN_87,2,PIN_87,,,
+out[2],Output,PIN_88,2,PIN_88,,,
+out[1],Output,PIN_91,2,PIN_91,,,
+out[0],Output,PIN_90,2,PIN_90,,,
+pwm,Input,PIN_1,2,PIN_1,,,
+sel,Input,PIN_99,2,PIN_99,,,
