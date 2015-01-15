@@ -31,14 +31,14 @@ void SPEAKER_BEEP_ONE() {
 }
 
 void SendString(const unsigned char *string) {
-    
+
     TIM_Cmd(TIM3, DISABLE);
     unsigned char str[64];
     memset(str, '\0', sizeof(unsigned char)*64);
     memcpy(str, string, strlen(string) > 64 ? 64 : strlen(string));
-    
+
     UserToPMABufferCopy(str, GetEPTxAddr(ENDP1), 64);
-    
+
     SetEPTxCount(ENDP1, 64);
     SetEPTxValid(ENDP1);
     IWDG_ReloadCounter();
@@ -52,19 +52,19 @@ void SendString(const unsigned char *string) {
 void EP1_OUT_Callback(void)
 {
 	uint8_t DataLen, i;
-    
+
     TIM_Cmd(TIM3, DISABLE);
 	DataLen = GetEPRxCount(ENDP1);
 	PMAToUserBufferCopy(Receive_Buffer, ENDP1_RXADDR, DataLen);
 	SetEPRxValid(ENDP1);
-    
+
     for(i = 0; i < DataLen; i++)
     {
         if (!Receive_Buffer[i]) break;
         USART_Terminal(Receive_Buffer[i]);
     }
     TIM_Cmd(TIM3, ENABLE);
-} 
+}
 
 
 void PWM_Configuration() {
@@ -231,10 +231,10 @@ void IWDG_Configuration(void) {
 }
 
 int main(void) {
-    
+
     SystemInit();
     NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x08004000);
-    
+
     Delay_init(72);
 
     GPIO_Configuration();
@@ -287,6 +287,7 @@ int main(void) {
 
     SPEAKER_BEEP_ONE();
     GPIO_ResetBits(GPIOA, GPIO_Pin_0);
+    GPIO_ResetBits(GPIOB, GPIO_Pin_12);
     TIM3_Configuration();
 
     IWDG_Configuration();
@@ -295,7 +296,7 @@ int main(void) {
 
         if (GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13) == 0) { //S2: Cancel auto poweroff and enable/disable nixie tube
             TIM_Cmd(TIM3, DISABLE);
-            
+
             if (NixieTube_EN) {
                 SPEAKER_BEEP_THREE_DOWN();
             } else {
@@ -354,7 +355,7 @@ void GPIO_Configuration(void) {
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_12;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
