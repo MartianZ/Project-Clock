@@ -14,7 +14,7 @@ export OBJCOPY=/Users/MartianZ/Documents/stm32/gcc-arm-none-eabi/bin/arm-none-ea
 
 export ASFLAGS=
 export LDFLAGS=-Tstm32f100.ld -Llib -fno-common -mcpu=cortex-m3 -mthumb
-export CFLAGS=-O1 -c -fno-common -mcpu=cortex-m3 -mthumb -DSTM32F10X_MD=1 -DUSE_STDPERIPH_DRIVER=1 -DUSE_STM3210B_EVAL=1
+export CFLAGS=-O1 -c -fno-common -mcpu=cortex-m3 -mthumb -DSTM32F10X_MD=1 -DUSE_STDPERIPH_DRIVER=1 -DUSE_STM3210B_EVAL=1 -DHARDWAREVERSION2
 
 CWD = $(shell pwd)
 export ROOT=$(CWD)
