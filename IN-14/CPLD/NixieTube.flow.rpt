@@ -1,5 +1,5 @@
 Flow report for NixieTube
-Mon Jan 12 20:42:38 2015
+Thu Jan 15 20:12:37 2015
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Flow Summary                                                            ;
 +---------------------------+---------------------------------------------+
-; Flow Status               ; Successful - Mon Jan 12 20:42:35 2015       ;
+; Flow Status               ; Successful - Thu Jan 15 20:12:33 2015       ;
 ; Quartus II 64-Bit Version ; 14.0.0 Build 200 06/17/2014 SJ Full Version ;
 ; Revision Name             ; NixieTube                                   ;
 ; Top-level Entity Name     ; NixieTube                                   ;
@@ -60,7 +60,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/12/2015 20:42:26 ;
+; Start date & time ; 01/15/2015 20:12:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; NixieTube           ;
 +-------------------+---------------------+
@@ -71,7 +71,7 @@ agreement for further details.
 +------------------------+---------------------------------+---------------+-------------+------------+
 ; Assignment Name        ; Value                           ; Default Value ; Entity Name ; Section Id ;
 +------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID  ; 216075648254198.142106654610308 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID  ; 216075648254198.142132394502720 ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP ; 85                              ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP ; 0                               ; --            ; --          ; --         ;
 +------------------------+---------------------------------+---------------+-------------+------------+
@@ -82,11 +82,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 509 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:03     ; 1.0                     ; 849 MB              ; 00:00:03                           ;
+; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 509 MB              ; 00:00:01                           ;
+; Fitter                    ; 00:00:02     ; 1.0                     ; 837 MB              ; 00:00:02                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 464 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 452 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:07     ; --                      ; --                  ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 452 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:06     ; --                      ; --                  ; 00:00:05                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

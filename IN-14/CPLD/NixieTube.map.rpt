@@ -1,5 +1,5 @@
 Analysis & Synthesis report for NixieTube
-Mon Jan 12 20:42:27 2015
+Thu Jan 15 20:12:26 2015
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
 
 
@@ -42,7 +42,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon Jan 12 20:42:27 2015       ;
+; Analysis & Synthesis Status ; Successful - Thu Jan 15 20:12:26 2015       ;
 ; Quartus II 64-Bit Version   ; 14.0.0 Build 200 06/17/2014 SJ Full Version ;
 ; Revision Name               ; NixieTube                                   ;
 ; Top-level Entity Name       ; NixieTube                                   ;
@@ -227,7 +227,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.0.0 Build 200 06/17/2014 SJ Full Version
-    Info: Processing started: Mon Jan 12 20:42:25 2015
+    Info: Processing started: Thu Jan 15 20:12:25 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NixieTube -c NixieTube
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file nixietube.v
@@ -240,8 +240,8 @@ Info (21057): Implemented 297 device resources after synthesis - the final resou
     Info (21061): Implemented 218 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 509 megabytes
-    Info: Processing ended: Mon Jan 12 20:42:27 2015
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Thu Jan 15 20:12:26 2015
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

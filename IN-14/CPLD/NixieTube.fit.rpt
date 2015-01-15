@@ -1,5 +1,5 @@
 Fitter report for NixieTube
-Mon Jan 12 20:42:32 2015
+Thu Jan 15 20:12:30 2015
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
 
 
@@ -57,7 +57,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Fitter Summary                                                          ;
 +---------------------------+---------------------------------------------+
-; Fitter Status             ; Successful - Mon Jan 12 20:42:32 2015       ;
+; Fitter Status             ; Successful - Thu Jan 15 20:12:30 2015       ;
 ; Quartus II 64-Bit Version ; 14.0.0 Build 200 06/17/2014 SJ Full Version ;
 ; Revision Name             ; NixieTube                                   ;
 ; Top-level Entity Name     ; NixieTube                                   ;
@@ -144,49 +144,49 @@ agreement for further details.
 The pin-out file can be found in C:/Users/MartianZ/Documents/Project-Clock/IN-14/CPLD/NixieTube.pin.
 
 
-+--------------------------------------------------------------------+
-; Fitter Resource Usage Summary                                      ;
-+---------------------------------------------+----------------------+
-; Resource                                    ; Usage                ;
-+---------------------------------------------+----------------------+
-; Total logic elements                        ; 146 / 240 ( 61 % )   ;
-;     -- Combinational with no register       ; 0                    ;
-;     -- Register only                        ; 72                   ;
-;     -- Combinational with a register        ; 74                   ;
-;                                             ;                      ;
-; Logic element usage by number of LUT inputs ;                      ;
-;     -- 4 input functions                    ; 72                   ;
-;     -- 3 input functions                    ; 0                    ;
-;     -- 2 input functions                    ; 1                    ;
-;     -- 1 input functions                    ; 1                    ;
-;     -- 0 input functions                    ; 0                    ;
-;                                             ;                      ;
-; Logic elements by mode                      ;                      ;
-;     -- normal mode                          ; 146                  ;
-;     -- arithmetic mode                      ; 0                    ;
-;     -- qfbk mode                            ; 72                   ;
-;     -- register cascade mode                ; 0                    ;
-;     -- synchronous clear/load mode          ; 108                  ;
-;     -- asynchronous clear/load mode         ; 0                    ;
-;                                             ;                      ;
-; Total registers                             ; 146 / 240 ( 61 % )   ;
-; Total LABs                                  ; 19 / 24 ( 79 % )     ;
-; Logic elements in carry chains              ; 0                    ;
-; Virtual pins                                ; 0                    ;
-; I/O pins                                    ; 79 / 80 ( 99 % )     ;
-;     -- Clock pins                           ; 3 / 4 ( 75 % )       ;
-;                                             ;                      ;
-; Global signals                              ; 2                    ;
-; UFM blocks                                  ; 0 / 1 ( 0 % )        ;
-; Global clocks                               ; 2 / 4 ( 50 % )       ;
-; JTAGs                                       ; 0 / 1 ( 0 % )        ;
-; Average interconnect usage (total/H/V)      ; 10.2% / 10.7% / 9.5% ;
-; Peak interconnect usage (total/H/V)         ; 10.2% / 10.7% / 9.5% ;
-; Maximum fan-out                             ; 144                  ;
-; Highest non-global fan-out                  ; 144                  ;
-; Total fan-out                               ; 726                  ;
-; Average fan-out                             ; 3.23                 ;
-+---------------------------------------------+----------------------+
++---------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                       ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Total logic elements                        ; 146 / 240 ( 61 % )    ;
+;     -- Combinational with no register       ; 0                     ;
+;     -- Register only                        ; 72                    ;
+;     -- Combinational with a register        ; 74                    ;
+;                                             ;                       ;
+; Logic element usage by number of LUT inputs ;                       ;
+;     -- 4 input functions                    ; 72                    ;
+;     -- 3 input functions                    ; 0                     ;
+;     -- 2 input functions                    ; 1                     ;
+;     -- 1 input functions                    ; 1                     ;
+;     -- 0 input functions                    ; 0                     ;
+;                                             ;                       ;
+; Logic elements by mode                      ;                       ;
+;     -- normal mode                          ; 146                   ;
+;     -- arithmetic mode                      ; 0                     ;
+;     -- qfbk mode                            ; 72                    ;
+;     -- register cascade mode                ; 0                     ;
+;     -- synchronous clear/load mode          ; 110                   ;
+;     -- asynchronous clear/load mode         ; 0                     ;
+;                                             ;                       ;
+; Total registers                             ; 146 / 240 ( 61 % )    ;
+; Total LABs                                  ; 17 / 24 ( 71 % )      ;
+; Logic elements in carry chains              ; 0                     ;
+; Virtual pins                                ; 0                     ;
+; I/O pins                                    ; 79 / 80 ( 99 % )      ;
+;     -- Clock pins                           ; 3 / 4 ( 75 % )        ;
+;                                             ;                       ;
+; Global signals                              ; 2                     ;
+; UFM blocks                                  ; 0 / 1 ( 0 % )         ;
+; Global clocks                               ; 2 / 4 ( 50 % )        ;
+; JTAGs                                       ; 0 / 1 ( 0 % )         ;
+; Average interconnect usage (total/H/V)      ; 11.3% / 10.7% / 11.8% ;
+; Peak interconnect usage (total/H/V)         ; 11.3% / 10.7% / 11.8% ;
+; Maximum fan-out                             ; 144                   ;
+; Highest non-global fan-out                  ; 144                   ;
+; Total fan-out                               ; 726                   ;
+; Average fan-out                             ; 3.23                  ;
++---------------------------------------------+-----------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,77 +210,77 @@ The pin-out file can be found in C:/Users/MartianZ/Documents/Project-Clock/IN-14
 +----------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 ; neon_pwm ; 14    ; 1        ; 1            ; 2            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[0]   ; 90    ; 2        ; 4            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[10]  ; 92    ; 2        ; 3            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[11]  ; 89    ; 2        ; 4            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[10]  ; 91    ; 2        ; 4            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[11]  ; 89    ; 2        ; 4            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[12]  ; 81    ; 2        ; 6            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[13]  ; 82    ; 2        ; 6            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[14]  ; 77    ; 2        ; 7            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[15]  ; 76    ; 2        ; 7            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[16]  ; 75    ; 2        ; 7            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[17]  ; 74    ; 2        ; 8            ; 4            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[18]  ; 73    ; 2        ; 8            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[19]  ; 72    ; 2        ; 8            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[1]   ; 91    ; 2        ; 4            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[20]  ; 71    ; 2        ; 8            ; 4            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[21]  ; 70    ; 2        ; 8            ; 4            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[22]  ; 83    ; 2        ; 6            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[13]  ; 77    ; 2        ; 7            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[14]  ; 76    ; 2        ; 7            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[15]  ; 75    ; 2        ; 7            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[16]  ; 74    ; 2        ; 8            ; 4            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[17]  ; 73    ; 2        ; 8            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[18]  ; 72    ; 2        ; 8            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[19]  ; 71    ; 2        ; 8            ; 4            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[1]   ; 88    ; 2        ; 5            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[20]  ; 70    ; 2        ; 8            ; 4            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[21]  ; 83    ; 2        ; 6            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[22]  ; 82    ; 2        ; 6            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[23]  ; 78    ; 2        ; 7            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[24]  ; 58    ; 2        ; 8            ; 2            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[25]  ; 61    ; 2        ; 8            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[26]  ; 56    ; 2        ; 8            ; 1            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[27]  ; 55    ; 2        ; 8            ; 1            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[28]  ; 54    ; 2        ; 8            ; 1            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[29]  ; 53    ; 2        ; 8            ; 1            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[2]   ; 88    ; 2        ; 5            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[30]  ; 52    ; 2        ; 8            ; 1            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[31]  ; 69    ; 2        ; 8            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[32]  ; 68    ; 2        ; 8            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[33]  ; 67    ; 2        ; 8            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[34]  ; 66    ; 2        ; 8            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[25]  ; 56    ; 2        ; 8            ; 1            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[26]  ; 55    ; 2        ; 8            ; 1            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[27]  ; 54    ; 2        ; 8            ; 1            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[28]  ; 53    ; 2        ; 8            ; 1            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[29]  ; 52    ; 2        ; 8            ; 1            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[2]   ; 87    ; 2        ; 5            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[30]  ; 69    ; 2        ; 8            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[31]  ; 68    ; 2        ; 8            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[32]  ; 67    ; 2        ; 8            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[33]  ; 66    ; 2        ; 8            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[34]  ; 61    ; 2        ; 8            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[35]  ; 57    ; 2        ; 8            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[36]  ; 49    ; 1        ; 7            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[37]  ; 50    ; 1        ; 7            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[38]  ; 47    ; 1        ; 6            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[39]  ; 44    ; 1        ; 6            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[3]   ; 87    ; 2        ; 5            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[40]  ; 43    ; 1        ; 6            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[41]  ; 42    ; 1        ; 5            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[42]  ; 41    ; 1        ; 5            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[43]  ; 40    ; 1        ; 5            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[44]  ; 39    ; 1        ; 5            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[45]  ; 38    ; 1        ; 4            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[46]  ; 51    ; 1        ; 7            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[37]  ; 47    ; 1        ; 6            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[38]  ; 44    ; 1        ; 6            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[39]  ; 43    ; 1        ; 6            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[3]   ; 86    ; 2        ; 5            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[40]  ; 42    ; 1        ; 5            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[41]  ; 41    ; 1        ; 5            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[42]  ; 40    ; 1        ; 5            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[43]  ; 39    ; 1        ; 5            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[44]  ; 38    ; 1        ; 4            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[45]  ; 51    ; 1        ; 7            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[46]  ; 50    ; 1        ; 7            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[47]  ; 48    ; 1        ; 6            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[48]  ; 26    ; 1        ; 2            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[49]  ; 27    ; 1        ; 2            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[4]   ; 86    ; 2        ; 5            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[50]  ; 20    ; 1        ; 1            ; 1            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[51]  ; 37    ; 1        ; 4            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[52]  ; 36    ; 1        ; 4            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[53]  ; 35    ; 1        ; 3            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[54]  ; 34    ; 1        ; 3            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[55]  ; 33    ; 1        ; 3            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[56]  ; 30    ; 1        ; 3            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; out[57]  ; 29    ; 1        ; 2            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[58]  ; 28    ; 1        ; 2            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[59]  ; 21    ; 1        ; 1            ; 1            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[5]   ; 85    ; 2        ; 5            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[49]  ; 20    ; 1        ; 1            ; 1            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[4]   ; 85    ; 2        ; 5            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[50]  ; 37    ; 1        ; 4            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
+; out[51]  ; 36    ; 1        ; 4            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
+; out[52]  ; 35    ; 1        ; 3            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[53]  ; 34    ; 1        ; 3            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[54]  ; 33    ; 1        ; 3            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[55]  ; 30    ; 1        ; 3            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[56]  ; 29    ; 1        ; 2            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[57]  ; 28    ; 1        ; 2            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[58]  ; 27    ; 1        ; 2            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
+; out[59]  ; 21    ; 1        ; 1            ; 1            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
+; out[5]   ; 84    ; 2        ; 6            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[60]  ; 15    ; 1        ; 1            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[61]  ; 16    ; 1        ; 1            ; 2            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[62]  ; 6     ; 1        ; 1            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[63]  ; 4     ; 1        ; 1            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[64]  ; 2     ; 1        ; 1            ; 4            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[65]  ; 3     ; 1        ; 1            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[66]  ; 5     ; 1        ; 1            ; 4            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[67]  ; 7     ; 1        ; 1            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[68]  ; 19    ; 1        ; 1            ; 1            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[69]  ; 18    ; 1        ; 1            ; 1            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[6]   ; 84    ; 2        ; 6            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[70]  ; 17    ; 1        ; 1            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[61]  ; 6     ; 1        ; 1            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[62]  ; 4     ; 1        ; 1            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[63]  ; 2     ; 1        ; 1            ; 4            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[64]  ; 3     ; 1        ; 1            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[65]  ; 5     ; 1        ; 1            ; 4            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[66]  ; 7     ; 1        ; 1            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[67]  ; 19    ; 1        ; 1            ; 1            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[68]  ; 18    ; 1        ; 1            ; 1            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[69]  ; 17    ; 1        ; 1            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
+; out[6]   ; 97    ; 2        ; 3            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[70]  ; 16    ; 1        ; 1            ; 2            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; out[71]  ; 8     ; 1        ; 1            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[7]   ; 97    ; 2        ; 3            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[8]   ; 96    ; 2        ; 3            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; out[9]   ; 95    ; 2        ; 3            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[7]   ; 96    ; 2        ; 3            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[8]   ; 95    ; 2        ; 3            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; out[9]   ; 92    ; 2        ; 3            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 +----------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 
 
@@ -300,12 +300,12 @@ The pin-out file can be found in C:/Users/MartianZ/Documents/Project-Clock/IN-14
 ; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage   ; I/O Type   ; User Assignment ; Bus Hold ; Weak Pull Up ;
 +----------+------------+----------+----------------+--------+--------------+-----------+------------+-----------------+----------+--------------+
 ; 1        ; 83         ; 2        ; pwm            ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 2        ; 0          ; 1        ; out[64]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 3        ; 1          ; 1        ; out[65]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 4        ; 2          ; 1        ; out[63]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 5        ; 3          ; 1        ; out[66]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 6        ; 4          ; 1        ; out[62]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 7        ; 5          ; 1        ; out[67]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 2        ; 0          ; 1        ; out[63]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 3        ; 1          ; 1        ; out[64]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 4        ; 2          ; 1        ; out[62]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 5        ; 3          ; 1        ; out[65]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 6        ; 4          ; 1        ; out[61]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 7        ; 5          ; 1        ; out[66]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 8        ; 6          ; 1        ; out[71]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 9        ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V      ; --         ;                 ; --       ; --           ;
 ; 10       ;            ;          ; GNDIO          ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
@@ -314,88 +314,88 @@ The pin-out file can be found in C:/Users/MartianZ/Documents/Project-Clock/IN-14
 ; 13       ;            ;          ; VCCINT         ; power  ;              ; 2.5V/3.3V ; --         ;                 ; --       ; --           ;
 ; 14       ; 8          ; 1        ; neon_pwm       ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 15       ; 9          ; 1        ; out[60]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 16       ; 10         ; 1        ; out[61]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 17       ; 11         ; 1        ; out[70]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 18       ; 12         ; 1        ; out[69]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 19       ; 13         ; 1        ; out[68]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 20       ; 14         ; 1        ; out[50]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 16       ; 10         ; 1        ; out[70]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 17       ; 11         ; 1        ; out[69]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 18       ; 12         ; 1        ; out[68]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 19       ; 13         ; 1        ; out[67]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 20       ; 14         ; 1        ; out[49]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 21       ; 15         ; 1        ; out[59]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 22       ; 16         ; 1        ; #TMS           ; input  ;              ;           ; --         ;                 ; --       ; --           ;
 ; 23       ; 17         ; 1        ; #TDI           ; input  ;              ;           ; --         ;                 ; --       ; --           ;
 ; 24       ; 18         ; 1        ; #TCK           ; input  ;              ;           ; --         ;                 ; --       ; --           ;
 ; 25       ; 19         ; 1        ; #TDO           ; output ;              ;           ; --         ;                 ; --       ; --           ;
 ; 26       ; 20         ; 1        ; out[48]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 27       ; 21         ; 1        ; out[49]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 28       ; 22         ; 1        ; out[58]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 29       ; 23         ; 1        ; out[57]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 30       ; 24         ; 1        ; out[56]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 27       ; 21         ; 1        ; out[58]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 28       ; 22         ; 1        ; out[57]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 29       ; 23         ; 1        ; out[56]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 30       ; 24         ; 1        ; out[55]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 31       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V      ; --         ;                 ; --       ; --           ;
 ; 32       ;            ;          ; GNDIO          ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
-; 33       ; 25         ; 1        ; out[55]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 34       ; 26         ; 1        ; out[54]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 35       ; 27         ; 1        ; out[53]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 36       ; 28         ; 1        ; out[52]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 37       ; 29         ; 1        ; out[51]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 38       ; 30         ; 1        ; out[45]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 39       ; 31         ; 1        ; out[44]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 40       ; 32         ; 1        ; out[43]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 41       ; 33         ; 1        ; out[42]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 42       ; 34         ; 1        ; out[41]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 43       ; 35         ; 1        ; out[40]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 44       ; 36         ; 1        ; out[39]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 33       ; 25         ; 1        ; out[54]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 34       ; 26         ; 1        ; out[53]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 35       ; 27         ; 1        ; out[52]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 36       ; 28         ; 1        ; out[51]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 37       ; 29         ; 1        ; out[50]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 38       ; 30         ; 1        ; out[44]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 39       ; 31         ; 1        ; out[43]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 40       ; 32         ; 1        ; out[42]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 41       ; 33         ; 1        ; out[41]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 42       ; 34         ; 1        ; out[40]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 43       ; 35         ; 1        ; out[39]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 44       ; 36         ; 1        ; out[38]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 45       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V      ; --         ;                 ; --       ; --           ;
 ; 46       ;            ;          ; GNDIO          ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
-; 47       ; 37         ; 1        ; out[38]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 47       ; 37         ; 1        ; out[37]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 48       ; 38         ; 1        ; out[47]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 49       ; 39         ; 1        ; out[36]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 50       ; 40         ; 1        ; out[37]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 51       ; 41         ; 1        ; out[46]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 52       ; 42         ; 2        ; out[30]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 53       ; 43         ; 2        ; out[29]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 54       ; 44         ; 2        ; out[28]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 55       ; 45         ; 2        ; out[27]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 56       ; 46         ; 2        ; out[26]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 50       ; 40         ; 1        ; out[46]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 51       ; 41         ; 1        ; out[45]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 52       ; 42         ; 2        ; out[29]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 53       ; 43         ; 2        ; out[28]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 54       ; 44         ; 2        ; out[27]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 55       ; 45         ; 2        ; out[26]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 56       ; 46         ; 2        ; out[25]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 57       ; 47         ; 2        ; out[35]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 58       ; 48         ; 2        ; out[24]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 59       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V      ; --         ;                 ; --       ; --           ;
 ; 60       ;            ;          ; GNDIO          ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
-; 61       ; 49         ; 2        ; out[25]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 61       ; 49         ; 2        ; out[34]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 62       ; 50         ; 2        ; clk_32k        ; input  ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
 ; 63       ;            ;          ; VCCINT         ; power  ;              ; 2.5V/3.3V ; --         ;                 ; --       ; --           ;
 ; 64       ; 51         ; 2        ; RESERVED_INPUT ;        ;              ;           ; Row I/O    ;                 ; no       ; Off          ;
 ; 65       ;            ;          ; GNDINT         ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
-; 66       ; 52         ; 2        ; out[34]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 67       ; 53         ; 2        ; out[33]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 68       ; 54         ; 2        ; out[32]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 69       ; 55         ; 2        ; out[31]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 70       ; 56         ; 2        ; out[21]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 71       ; 57         ; 2        ; out[20]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 72       ; 58         ; 2        ; out[19]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 73       ; 59         ; 2        ; out[18]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 74       ; 60         ; 2        ; out[17]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
-; 75       ; 61         ; 2        ; out[16]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 76       ; 62         ; 2        ; out[15]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 77       ; 63         ; 2        ; out[14]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 66       ; 52         ; 2        ; out[33]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 67       ; 53         ; 2        ; out[32]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 68       ; 54         ; 2        ; out[31]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 69       ; 55         ; 2        ; out[30]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 70       ; 56         ; 2        ; out[20]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 71       ; 57         ; 2        ; out[19]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 72       ; 58         ; 2        ; out[18]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 73       ; 59         ; 2        ; out[17]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 74       ; 60         ; 2        ; out[16]        ; output ; 3.3-V LVTTL  ;           ; Row I/O    ; Y               ; no       ; Off          ;
+; 75       ; 61         ; 2        ; out[15]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 76       ; 62         ; 2        ; out[14]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 77       ; 63         ; 2        ; out[13]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 78       ; 64         ; 2        ; out[23]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 79       ;            ;          ; GNDIO          ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
 ; 80       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V      ; --         ;                 ; --       ; --           ;
 ; 81       ; 65         ; 2        ; out[12]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 82       ; 66         ; 2        ; out[13]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 83       ; 67         ; 2        ; out[22]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 84       ; 68         ; 2        ; out[6]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 85       ; 69         ; 2        ; out[5]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 86       ; 70         ; 2        ; out[4]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 87       ; 71         ; 2        ; out[3]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 88       ; 72         ; 2        ; out[2]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 82       ; 66         ; 2        ; out[22]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 83       ; 67         ; 2        ; out[21]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 84       ; 68         ; 2        ; out[5]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 85       ; 69         ; 2        ; out[4]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 86       ; 70         ; 2        ; out[3]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 87       ; 71         ; 2        ; out[2]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 88       ; 72         ; 2        ; out[1]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 89       ; 73         ; 2        ; out[11]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 90       ; 74         ; 2        ; out[0]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 91       ; 75         ; 2        ; out[1]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 92       ; 76         ; 2        ; out[10]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 91       ; 75         ; 2        ; out[10]        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 92       ; 76         ; 2        ; out[9]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 93       ;            ;          ; GNDIO          ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
 ; 94       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V      ; --         ;                 ; --       ; --           ;
-; 95       ; 77         ; 2        ; out[9]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 96       ; 78         ; 2        ; out[8]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
-; 97       ; 79         ; 2        ; out[7]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 95       ; 77         ; 2        ; out[8]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 96       ; 78         ; 2        ; out[7]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
+; 97       ; 79         ; 2        ; out[6]         ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 98       ; 80         ; 2        ; data           ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 99       ; 81         ; 2        ; sel            ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 100      ; 82         ; 2        ; en             ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
@@ -771,105 +771,104 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+--------------------+
 ; Routing Resource Type ; Usage              ;
 +-----------------------+--------------------+
-; C4s                   ; 82 / 784 ( 10 % )  ;
-; Direct links          ; 43 / 888 ( 5 % )   ;
+; C4s                   ; 93 / 784 ( 12 % )  ;
+; Direct links          ; 33 / 888 ( 4 % )   ;
 ; Global clocks         ; 2 / 4 ( 50 % )     ;
 ; LAB clocks            ; 7 / 32 ( 22 % )    ;
 ; LUT chains            ; 0 / 216 ( 0 % )    ;
-; Local interconnects   ; 187 / 888 ( 21 % ) ;
-; R4s                   ; 63 / 704 ( 9 % )   ;
+; Local interconnects   ; 197 / 888 ( 22 % ) ;
+; R4s                   ; 65 / 704 ( 9 % )   ;
 +-----------------------+--------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Logic Elements                                                        ;
 +--------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 7.68) ; Number of LABs  (Total = 19) ;
+; Number of Logic Elements  (Average = 8.59) ; Number of LABs  (Total = 17) ;
 +--------------------------------------------+------------------------------+
-; 1                                          ; 2                            ;
-; 2                                          ; 2                            ;
+; 1                                          ; 0                            ;
+; 2                                          ; 1                            ;
 ; 3                                          ; 0                            ;
 ; 4                                          ; 0                            ;
-; 5                                          ; 0                            ;
-; 6                                          ; 0                            ;
+; 5                                          ; 1                            ;
+; 6                                          ; 1                            ;
 ; 7                                          ; 1                            ;
-; 8                                          ; 2                            ;
-; 9                                          ; 3                            ;
-; 10                                         ; 9                            ;
+; 8                                          ; 1                            ;
+; 9                                          ; 2                            ;
+; 10                                         ; 10                           ;
 +--------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.95) ; Number of LABs  (Total = 19) ;
+; LAB-wide Signals  (Average = 1.94) ; Number of LABs  (Total = 17) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 19                           ;
-; 1 Clock enable                     ; 18                           ;
+; 1 Clock                            ; 17                           ;
+; 1 Clock enable                     ; 16                           ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 11.42) ; Number of LABs  (Total = 19) ;
+; Number of Signals Sourced  (Average = 12.76) ; Number of LABs  (Total = 17) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 2                            ;
+; 1                                            ; 0                            ;
 ; 2                                            ; 1                            ;
 ; 3                                            ; 0                            ;
-; 4                                            ; 1                            ;
+; 4                                            ; 0                            ;
 ; 5                                            ; 0                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
-; 9                                            ; 0                            ;
-; 10                                           ; 1                            ;
+; 8                                            ; 1                            ;
+; 9                                            ; 2                            ;
+; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
-; 12                                           ; 1                            ;
-; 13                                           ; 3                            ;
-; 14                                           ; 5                            ;
-; 15                                           ; 2                            ;
+; 12                                           ; 2                            ;
+; 13                                           ; 2                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 4                            ;
 ; 16                                           ; 3                            ;
+; 17                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 6.42) ; Number of LABs  (Total = 19) ;
+; Number of Signals Sourced Out  (Average = 7.24) ; Number of LABs  (Total = 17) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 3                            ;
+; 1                                               ; 1                            ;
 ; 2                                               ; 0                            ;
-; 3                                               ; 1                            ;
+; 3                                               ; 0                            ;
 ; 4                                               ; 0                            ;
-; 5                                               ; 1                            ;
-; 6                                               ; 1                            ;
-; 7                                               ; 4                            ;
-; 8                                               ; 6                            ;
-; 9                                               ; 2                            ;
-; 10                                              ; 0                            ;
-; 11                                              ; 1                            ;
+; 5                                               ; 2                            ;
+; 6                                               ; 2                            ;
+; 7                                               ; 2                            ;
+; 8                                               ; 5                            ;
+; 9                                               ; 4                            ;
+; 10                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                        ;
 +---------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 6.42) ; Number of LABs  (Total = 19) ;
+; Number of Distinct Inputs  (Average = 6.88) ; Number of LABs  (Total = 17) ;
 +---------------------------------------------+------------------------------+
 ; 0                                           ; 0                            ;
 ; 1                                           ; 1                            ;
 ; 2                                           ; 0                            ;
-; 3                                           ; 2                            ;
+; 3                                           ; 0                            ;
 ; 4                                           ; 0                            ;
 ; 5                                           ; 1                            ;
-; 6                                           ; 6                            ;
-; 7                                           ; 3                            ;
-; 8                                           ; 2                            ;
+; 6                                           ; 5                            ;
+; 7                                           ; 2                            ;
+; 8                                           ; 5                            ;
 ; 9                                           ; 3                            ;
-; 10                                          ; 1                            ;
 +---------------------------------------------+------------------------------+
 
 
@@ -926,19 +925,19 @@ Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 7% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 7% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
+Info (170195): Router estimated average interconnect usage is 8% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 8% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.15 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.12 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Info (144001): Generated suppressed messages file C:/Users/MartianZ/Documents/Project-Clock/IN-14/CPLD/NixieTube.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 849 megabytes
-    Info: Processing ended: Mon Jan 12 20:42:32 2015
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 837 megabytes
+    Info: Processing ended: Thu Jan 15 20:12:30 2015
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
 +----------------------------+

@@ -1,5 +1,5 @@
 Assembler report for NixieTube
-Mon Jan 12 20:42:35 2015
+Thu Jan 15 20:12:33 2015
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Jan 12 20:42:35 2015 ;
+; Assembler Status      ; Successful - Thu Jan 15 20:12:33 2015 ;
 ; Revision Name         ; NixieTube                             ;
 ; Top-level Entity Name ; NixieTube                             ;
 ; Family                ; MAX II                                ;
@@ -69,7 +69,7 @@ agreement for further details.
 +----------------+-----------------------------------------------------------------------------+
 ; Device         ; EPM240T100C5                                                                ;
 ; JTAG usercode  ; 0xFFFFFFFF                                                                  ;
-; Checksum       ; 0x00175208                                                                  ;
+; Checksum       ; 0x00172761                                                                  ;
 +----------------+-----------------------------------------------------------------------------+
 
 
@@ -79,13 +79,13 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 14.0.0 Build 200 06/17/2014 SJ Full Version
-    Info: Processing started: Mon Jan 12 20:42:34 2015
+    Info: Processing started: Thu Jan 15 20:12:32 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off NixieTube -c NixieTube
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 464 megabytes
-    Info: Processing ended: Mon Jan 12 20:42:35 2015
+    Info: Processing ended: Thu Jan 15 20:12:33 2015
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

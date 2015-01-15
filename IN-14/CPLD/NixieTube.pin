@@ -64,12 +64,12 @@ CHIP  "NixieTube"  ASSIGNED TO AN: EPM240T100C5
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
 pwm                          : 1         : input  : 3.3-V LVTTL       :         : 2         : Y              
-out[64]                      : 2         : output : 3.3-V LVTTL       :         : 1         : Y              
-out[65]                      : 3         : output : 3.3-V LVTTL       :         : 1         : Y              
-out[63]                      : 4         : output : 3.3-V LVTTL       :         : 1         : Y              
-out[66]                      : 5         : output : 3.3-V LVTTL       :         : 1         : Y              
-out[62]                      : 6         : output : 3.3-V LVTTL       :         : 1         : Y              
-out[67]                      : 7         : output : 3.3-V LVTTL       :         : 1         : Y              
+out[63]                      : 2         : output : 3.3-V LVTTL       :         : 1         : Y              
+out[64]                      : 3         : output : 3.3-V LVTTL       :         : 1         : Y              
+out[62]                      : 4         : output : 3.3-V LVTTL       :         : 1         : Y              
+out[65]                      : 5         : output : 3.3-V LVTTL       :         : 1         : Y              
+out[61]                      : 6         : output : 3.3-V LVTTL       :         : 1         : Y              
+out[66]                      : 7         : output : 3.3-V LVTTL       :         : 1         : Y              
 out[71]                      : 8         : output : 3.3-V LVTTL       :         : 1         : Y              
 VCCIO1                       : 9         : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 10        : gnd    :                   :         :           :                
@@ -78,88 +78,88 @@ clk                          : 12        : input  : 3.3-V LVTTL       :         
 VCCINT                       : 13        : power  :                   : 2.5V/3.3V :           :                
 neon_pwm                     : 14        : output : 3.3-V LVTTL       :         : 1         : Y              
 out[60]                      : 15        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[61]                      : 16        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[70]                      : 17        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[69]                      : 18        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[68]                      : 19        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[50]                      : 20        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[70]                      : 16        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[69]                      : 17        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[68]                      : 18        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[67]                      : 19        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[49]                      : 20        : output : 3.3-V LVTTL       :         : 1         : Y              
 out[59]                      : 21        : output : 3.3-V LVTTL       :         : 1         : Y              
 TMS                          : 22        : input  :                   :         : 1         :                
 TDI                          : 23        : input  :                   :         : 1         :                
 TCK                          : 24        : input  :                   :         : 1         :                
 TDO                          : 25        : output :                   :         : 1         :                
 out[48]                      : 26        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[49]                      : 27        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[58]                      : 28        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[57]                      : 29        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[56]                      : 30        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[58]                      : 27        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[57]                      : 28        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[56]                      : 29        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[55]                      : 30        : output : 3.3-V LVTTL       :         : 1         : Y              
 VCCIO1                       : 31        : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 32        : gnd    :                   :         :           :                
-out[55]                      : 33        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[54]                      : 34        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[53]                      : 35        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[52]                      : 36        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[51]                      : 37        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[45]                      : 38        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[44]                      : 39        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[43]                      : 40        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[42]                      : 41        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[41]                      : 42        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[40]                      : 43        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[39]                      : 44        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[54]                      : 33        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[53]                      : 34        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[52]                      : 35        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[51]                      : 36        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[50]                      : 37        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[44]                      : 38        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[43]                      : 39        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[42]                      : 40        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[41]                      : 41        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[40]                      : 42        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[39]                      : 43        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[38]                      : 44        : output : 3.3-V LVTTL       :         : 1         : Y              
 VCCIO1                       : 45        : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 46        : gnd    :                   :         :           :                
-out[38]                      : 47        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[37]                      : 47        : output : 3.3-V LVTTL       :         : 1         : Y              
 out[47]                      : 48        : output : 3.3-V LVTTL       :         : 1         : Y              
 out[36]                      : 49        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[37]                      : 50        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[46]                      : 51        : output : 3.3-V LVTTL       :         : 1         : Y              
-out[30]                      : 52        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[29]                      : 53        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[28]                      : 54        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[27]                      : 55        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[26]                      : 56        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[46]                      : 50        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[45]                      : 51        : output : 3.3-V LVTTL       :         : 1         : Y              
+out[29]                      : 52        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[28]                      : 53        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[27]                      : 54        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[26]                      : 55        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[25]                      : 56        : output : 3.3-V LVTTL       :         : 2         : Y              
 out[35]                      : 57        : output : 3.3-V LVTTL       :         : 2         : Y              
 out[24]                      : 58        : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : 59        : power  :                   : 3.3V    : 2         :                
 GNDIO                        : 60        : gnd    :                   :         :           :                
-out[25]                      : 61        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[34]                      : 61        : output : 3.3-V LVTTL       :         : 2         : Y              
 clk_32k                      : 62        : input  : 3.3-V LVTTL       :         : 2         : Y              
 VCCINT                       : 63        : power  :                   : 2.5V/3.3V :           :                
 RESERVED_INPUT               : 64        :        :                   :         : 2         :                
 GNDINT                       : 65        : gnd    :                   :         :           :                
-out[34]                      : 66        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[33]                      : 67        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[32]                      : 68        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[31]                      : 69        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[21]                      : 70        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[20]                      : 71        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[19]                      : 72        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[18]                      : 73        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[17]                      : 74        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[16]                      : 75        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[15]                      : 76        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[14]                      : 77        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[33]                      : 66        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[32]                      : 67        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[31]                      : 68        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[30]                      : 69        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[20]                      : 70        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[19]                      : 71        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[18]                      : 72        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[17]                      : 73        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[16]                      : 74        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[15]                      : 75        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[14]                      : 76        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[13]                      : 77        : output : 3.3-V LVTTL       :         : 2         : Y              
 out[23]                      : 78        : output : 3.3-V LVTTL       :         : 2         : Y              
 GNDIO                        : 79        : gnd    :                   :         :           :                
 VCCIO2                       : 80        : power  :                   : 3.3V    : 2         :                
 out[12]                      : 81        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[13]                      : 82        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[22]                      : 83        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[6]                       : 84        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[5]                       : 85        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[4]                       : 86        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[3]                       : 87        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[2]                       : 88        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[22]                      : 82        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[21]                      : 83        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[5]                       : 84        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[4]                       : 85        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[3]                       : 86        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[2]                       : 87        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[1]                       : 88        : output : 3.3-V LVTTL       :         : 2         : Y              
 out[11]                      : 89        : output : 3.3-V LVTTL       :         : 2         : Y              
 out[0]                       : 90        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[1]                       : 91        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[10]                      : 92        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[10]                      : 91        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[9]                       : 92        : output : 3.3-V LVTTL       :         : 2         : Y              
 GNDIO                        : 93        : gnd    :                   :         :           :                
 VCCIO2                       : 94        : power  :                   : 3.3V    : 2         :                
-out[9]                       : 95        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[8]                       : 96        : output : 3.3-V LVTTL       :         : 2         : Y              
-out[7]                       : 97        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[8]                       : 95        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[7]                       : 96        : output : 3.3-V LVTTL       :         : 2         : Y              
+out[6]                       : 97        : output : 3.3-V LVTTL       :         : 2         : Y              
 data                         : 98        : input  : 3.3-V LVTTL       :         : 2         : Y              
 sel                          : 99        : input  : 3.3-V LVTTL       :         : 2         : Y              
 en                           : 100       : input  : 3.3-V LVTTL       :         : 2         : Y              
