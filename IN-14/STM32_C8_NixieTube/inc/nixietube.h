@@ -32,9 +32,6 @@ extern "C" {
 #endif
 #endif
 
-#define SET_CPLD_EN_LOW GPIO_ResetBits(GPIOB, GPIO_Pin_5)
-#define SET_CPLD_EN_HIGH GPIO_SetBits(GPIOB, GPIO_Pin_5)
-
 #define SET_CPLD_DATA_LOW GPIO_ResetBits(GPIOA, GPIO_Pin_6)
 #define SET_CPLD_DATA_HIGH GPIO_SetBits(GPIOA, GPIO_Pin_6)
 
