@@ -325,7 +325,16 @@ int main(void) {
             TIM_Cmd(TIM3, ENABLE);
         }
 
-        if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3) == 0) {
+
+#ifdef HARDWAREVERSION1
+            if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3) == 0) {
+#else
+#ifdef HARDWAREVERSION2
+            if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) == 0) {
+#else
+#error "Please specify hardware version!"
+#endif
+#endif
             TIM_Cmd(TIM3, DISABLE);
 
             SPEAKER_BEEP_ONE();
@@ -350,7 +359,16 @@ void GPIO_Configuration(void) {
 
     GPIO_InitTypeDef GPIO_InitStructure;
 
+#ifdef HARDWAREVERSION1
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+#else
+#ifdef HARDWAREVERSION2
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_3 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+#else
+    #error "Please specify hardware version!"
+#endif
+#endif
+
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
@@ -362,7 +380,15 @@ void GPIO_Configuration(void) {
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
 
+#ifdef HARDWAREVERSION1
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+#else
+#ifdef HARDWAREVERSION2
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_4;
+#else
+    #error "Please specify hardware version!"
+#endif
+#endif
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
 
