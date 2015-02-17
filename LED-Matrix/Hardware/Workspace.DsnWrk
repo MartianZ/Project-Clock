@@ -1,0 +1,6 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=Project_LED_Timer.PrjPCB
+[Project2]
+ProjectPath=Project-Test\PCB_Project_Test.PrjPCB

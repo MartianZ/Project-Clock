@@ -1,0 +1,800 @@
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <STC_NEW_8051.h>
+   2          #include <INTRINS.h>
+   3          #include "delay.h"
+   4          #include "DS12C887.h"
+   5          #include "DS18B20.h"
+   6          #include "EEPROM.h"
+   7          sbit H1 = P0 ^ 0;
+   8          sbit H2 = P0 ^ 1;
+   9          sbit H3 = P0 ^ 2;
+  10          sbit H4 = P0 ^ 3;
+  11          sbit H5 = P0 ^ 4;
+  12          sbit H6 = P0 ^ 5;
+  13          sbit H7 = P0 ^ 6;
+  14          
+  15          sbit BEEP = P4 ^ 3;
+  16          
+  17          sbit INT0 = P3^2;
+  18          sbit INT1 = P3^3;
+  19          
+  20          sbit HC595_DATA = P2 ^ 2;
+  21          sbit HC595_STCP = P2 ^ 1;
+  22          sbit HC595_SHCP = P2 ^ 0;
+  23          
+  24          volatile unsigned char line = 1;
+  25          volatile unsigned long line_data[7]; 
+  26          volatile unsigned char busy = 0;
+  27          volatile unsigned char menu1 = 0;
+  28          volatile unsigned char menu2 = 0;
+  29          
+  30          volatile unsigned char brightness = 2;
+  31          
+  32          code unsigned char code_dark[7] = {0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F};
+  33          
+  34          code unsigned char code_aa[7] = {0x1F, 0x1F, 0x1F, 0x11, 0xE, 0x0, 0xE};
+  35          code unsigned char code_pp[7] = {0x1F, 0x1F, 0x1F, 0x1, 0xE, 0x1, 0xF};
+  36          code unsigned char code_0_1[7] = {0x0, 0x4, 0x4, 0x4, 0x4, 0x4, 0x0};
+  37          code unsigned char code_1_1[7] = {0x19, 0x19, 0x19, 0x19, 0x19, 0x19, 0x19};
+  38          code unsigned char code_2_1[7] = {0x10, 0x1C, 0x1C, 0x0, 0x7, 0x7, 0x0};
+  39          code unsigned char code_3_1[7] = {0x0, 0x1C, 0x1C, 0x10, 0x1C, 0x1C, 0x0};
+  40          code unsigned char code_4_1[7] = {0x4, 0x4, 0x4, 0x0, 0x1C, 0x1C, 0x1C};
+  41          code unsigned char code_5_1[7] = {0x1, 0x7, 0x7, 0x0, 0x1C, 0x1C, 0x0};
+  42          code unsigned char code_6_1[7] = {0x1, 0x7, 0x7, 0x0, 0x4, 0x4, 0x0};
+  43          code unsigned char code_7_1[7] = {0x0, 0x1C, 0x1C, 0x1C, 0x1C, 0x1C, 0x1C};
+  44          code unsigned char code_8_1[7] = {0x0, 0x4, 0x4, 0x0, 0x4, 0x4, 0x0};
+  45          code unsigned char code_9_1[7] = {0x0, 0x4, 0x4, 0x0, 0x1C, 0x1C, 0x10};
+  46          code unsigned char code_dot_1[7] = {0x1F, 0x13, 0x13, 0x1F, 0x13, 0x13, 0x1F};
+  47          code unsigned char code_dot_2[7] = {0x1F, 0x1F, 0x13, 0x13, 0x13, 0x1F, 0x1F};
+  48          code unsigned char code_dot_3[7] = {0x1F, 0x1F, 0x1F, 0x13, 0x1F, 0x1F, 0x1F};
+  49          
+  50          
+  51          code unsigned char code_num[][7] = {{0x0, 0x4, 0x4, 0x4, 0x4, 0x4, 0x0}, {0x19, 0x19, 0x19, 0x19, 0x19, 0x
+             -19, 0x19}, {0x10, 0x1C, 0x1C, 0x0, 0x7, 0x7, 0x0},
+  52                            {0x0, 0x1C, 0x1C, 0x10, 0x1C, 0x1C, 0x0}, {0x4, 0x4, 0x4, 0x0, 0x1C, 0x1C, 0x1C}, {0x1, 0x7, 0x7, 0x0,
+             - 0x1C, 0x1C, 0x0}, {0x1, 0x7, 0x7, 0x0, 0x4, 0x4, 0x0}, {0x0, 0x1C, 0x1C, 0x1C, 0x1C, 0x1C, 0x1C},
+  53                            {0x0, 0x4, 0x4, 0x0, 0x4, 0x4, 0x0}, {0x0, 0x4, 0x4, 0x0, 0x1C, 0x1C, 0x10}};   
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 2   
+
+  54          
+  55          code unsigned char code_H[7] = {0xE, 0xE, 0xE, 0x0, 0xE, 0xE, 0xE};
+  56          code unsigned char code_M[7] = {0xE, 0x4, 0xA, 0xA, 0xE, 0xE, 0xE};
+  57          code unsigned char code_S[7] = {0x10, 0xF, 0xF, 0x11, 0x1E, 0x1E, 0x1};
+  58          code unsigned char code_Y[7] = {0xE, 0xE, 0x15, 0x1B, 0x1B, 0x1B, 0x1B};
+  59          code unsigned char code_D[7] = {0x3, 0xD, 0xE, 0xE, 0xE, 0xD, 0x3};
+  60          code unsigned char code_colon[7] = {0x1F, 0x1F, 0x1F, 0x1B, 0x1F, 0x1B, 0x1F};
+  61          code unsigned char code_small_dot[7] = {0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x13, 0x13};
+  62          code unsigned char code_celsius[7]      = {0x7, 0x7, 0x18, 0x17, 0x17, 0x17, 0x18};
+  63          code unsigned char code_P[7] = {0x1, 0xE, 0xE, 0x1, 0xF, 0xF, 0xF};
+  64          code unsigned char code_B[7] = {0x1, 0xE, 0xE, 0x0, 0xE, 0xE, 0x1};
+  65          code unsigned char code_O[7] = {0x11, 0xE, 0xE, 0xE, 0xE, 0xE, 0x11};
+  66          code unsigned char code_E[7] = {0x0, 0xF, 0xF, 0x0, 0xF, 0xF, 0x0}; 
+  67          code unsigned char code_T[7] = {0x0, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B};
+  68          
+  69          code unsigned char code_oo[7] = {0x1F, 0x1F, 0x11, 0xE, 0xE, 0xE, 0x11};
+  70          code unsigned char code_nn[7] = {0x1F, 0x1F, 0x9, 0x6, 0xE, 0xE, 0xE};
+  71          code unsigned char code_yy[7] = {0x1F, 0x1F, 0xE, 0x15, 0x1B, 0x1B, 0x1B};
+  72          code unsigned char code_dash[7] = {0x1F, 0x1F, 0x1F, 0x11, 0x1F, 0x1F, 0x1F};
+  73          
+  74          code unsigned char code_uu[7] = {0x1F, 0x1F, 0xE, 0xE, 0xE, 0xC, 0x12};
+  75          code unsigned char code_ee[7] = {0x1F, 0x1F, 0x11, 0xE, 0x0, 0xF, 0x11};
+  76          code unsigned char code_ss[7] = {0x1F, 0x1F, 0x10, 0xF, 0x11, 0x1E, 0x1};
+  77          code unsigned char code_W[7] = {0xE, 0xE, 0xE, 0xA, 0xA, 0x4, 0xE};
+  78          code unsigned char code_dd[7] = {0x1E, 0x1E, 0x12, 0xC, 0xE, 0xE, 0x10};
+  79          code unsigned char code_hh[7] = {0xF, 0xF, 0x9, 0x6, 0xE, 0xE, 0xE};
+  80          code unsigned char code_rr[7] = {0x1F, 0x1F, 0xC, 0xB, 0x7, 0xF, 0xF};
+  81          code unsigned char code_F[7] = {0x0, 0xF, 0xF, 0x0, 0xF, 0xF, 0xF};
+  82          code unsigned char code_ii[7] = {0x1F, 0x1F, 0x1B, 0x1F, 0x1B, 0x1B, 0x1B};
+  83          code unsigned char code_tt[7] = {0x1F, 0x1F, 0x1F, 0x1B, 0x0, 0x1B, 0x18};
+  84          code unsigned char code_A[7] = {0x1B, 0x15, 0xE, 0x0, 0xE, 0xE, 0xE};
+  85          code unsigned char code_L[7] = {0xF, 0xF, 0xF, 0xF, 0xF, 0xF, 0x0};
+  86          code unsigned char code_R[7] = {0x1, 0xE, 0xE, 0x1, 0xB, 0xD, 0xE};
+  87           
+  88             
+  89          
+  90          void Timer0Init(void)
+  91          {
+  92   1              AUXR |= 0x7F;   //12T
+  93   1              TMOD &= 0x01;
+  94   1              TL0 = 0xFF;
+  95   1              TH0 = 0xFF;
+  96   1              TF0 = 0;        
+  97   1              TR0 = 1;
+  98   1              ET0 = 1;
+  99   1      }
+ 100          
+ 101          void IntInit(void)
+ 102          {
+ 103   1              IT1 = 1;
+ 104   1              EX1 = 1;
+ 105   1              IT0 = 1;
+ 106   1              EX0 = 1;
+ 107   1      }
+ 108          
+ 109          void DynamicDisplay6(unsigned char *a, unsigned char *b, unsigned char *c, unsigned char *d, unsigned char
+             - *e, unsigned char *f)
+ 110          {
+ 111   1              unsigned char i,j;
+ 112   1              for (i=1; i<=32; i++)
+ 113   1              {
+ 114   2                      for (j=0; j<7; j++)
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 3   
+
+ 115   2                      {
+ 116   3                               line_data[j] = line_data[j] << 1;
+ 117   3                               if (i <= 5) line_data[j] |= (unsigned long)a[j] >> (5-i) & 1;
+ 118   3                               else if (i <= 10) line_data[j] |= (unsigned long)b[j] >> (10-i) & 1;
+ 119   3                               else if (i <= 15) line_data[j] |= (unsigned long)c[j] >> (15-i) & 1;
+ 120   3                               else if (i <= 20) line_data[j] |= (unsigned long)d[j] >> (20-i) & 1;
+ 121   3                               else if (i <= 25) line_data[j] |= (unsigned long)e[j] >> (25-i) & 1;
+ 122   3                               else if (i <= 30) line_data[j] |= (unsigned long)f[j] >> (30-i) & 1;
+ 123   3                               Delay1ms();
+ 124   3                      }
+ 125   2              }
+ 126   1      }
+ 127          
+ 128          void Display6(unsigned char *a, unsigned char *b, unsigned char *c, unsigned char *d, unsigned char *e, un
+             -signed char *f, unsigned char dynamic)
+ 129          {
+ 130   1              if (!dynamic)
+ 131   1              {
+ 132   2                      unsigned char i;
+ 133   2                      for (i=0; i<7; i++) 
+ 134   2                              line_data[i] = ((unsigned long)a[i] << 27) | ((unsigned long)b[i] << 22) | ((unsigned long)c[i] << 17) 
+             -| ((unsigned long)d[i] << 12) | ((unsigned long)e[i] << 7) | ((unsigned long)f[i] << 2);      
+ 135   2              } else {
+ 136   2                      DynamicDisplay6(a,b,c,d,e,f);
+ 137   2              }
+ 138   1      }
+ 139          
+ 140          /*
+ 141          void DisplayPos(unsigned char *a, unsigned char pos)
+ 142          {
+ 143                  unsigned char i;
+ 144                  for (i=0; i<7; i++)
+ 145                  {
+ 146                          line_data[i] &= ~(unsigned long)0x1F << ((6-pos) * 5 + 2);
+ 147                          line_data[i] |= (unsigned long)a[i] << ((6-pos) * 5 + 2);       
+ 148                  }
+ 149          }
+ 150          */
+ 151          
+ 152          void ADCInit()
+ 153          {
+ 154   1              P1ASF = 0x80;
+ 155   1              AUXR1 = 0x04;
+ 156   1              ADC_CONTR = 0xEF;
+ 157   1      
+ 158   1              _nop_(); _nop_(); _nop_(); _nop_(); 
+ 159   1              PADC = 1;
+ 160   1              EADC = 1;       
+ 161   1      }
+ 162          
+ 163          unsigned char getMaxDay(unsigned int YYYY, unsigned char MON)
+ 164          {
+ 165   1              switch (MON)
+ 166   1          {
+ 167   2          case 1:
+ 168   2          case 3:
+ 169   2          case 5:
+ 170   2          case 7:
+ 171   2          case 8:
+ 172   2          case 10:
+ 173   2          case 12:return 31;
+ 174   2          case 4:
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 4   
+
+ 175   2          case 6:
+ 176   2          case 9:
+ 177   2          case 11:return 30;
+ 178   2          case 2:             
+ 179   2              if (YYYY%400==0 || (YYYY%100!=0 && YYYY%4==0))
+ 180   2                  return 29;
+ 181   2                      else
+ 182   2                              return 28; 
+ 183   2          default:    return 0;
+ 184   2          }
+ 185   1      }
+ 186          
+ 187          unsigned char getWeek(unsigned int YYYY, unsigned char MON, unsigned char DAY)
+ 188          {
+ 189   1              unsigned char y,m;
+ 190   1              y = ((YYYY % 100) / 4 + (YYYY % 100)) % 7;
+ 191   1              switch (MON)
+ 192   1              {
+ 193   2                      case 2:
+ 194   2                      case 3:
+ 195   2                      case 11: m = 2; break;
+ 196   2                      case 5: m = 0; break;
+ 197   2                      case 8: m = 1; break;
+ 198   2                      case 6: m = 3; break;
+ 199   2                      case 9:
+ 200   2                      case 12: m = 4; break;
+ 201   2                      case 4:
+ 202   2                      case 7: m = 5; break;
+ 203   2                      case 1:
+ 204   2                      case 10: m = 6; break;
+ 205   2              }
+ 206   1              if (YYYY % 400 == 0 || (YYYY%100!=0 && YYYY%4==0))
+ 207   1              {
+ 208   2                      if (MON == 2) m = 1;
+ 209   2                      if (MON == 1) m = 5;
+ 210   2              }
+ 211   1              return ((y + m + DAY) % 7);
+ 212   1      }
+ 213          
+ 214          void main()
+ 215          {       
+ 216   1              unsigned char i,HH,MM,SS,MON,DAY,m1 = 0,m2 = 0,mode,dynamic = 0,is24 = 0, enableBEEP = 1,WEEK;
+ 217   1              unsigned char enableAlarm = 0, Alarm_HH = 0, Alarm_MM = 0;
+ 218   1              unsigned int YYYY,w,ww = 0;
+ 219   1      
+ 220   1      
+ 221   1              IntInit();
+ 222   1              Timer0Init();
+ 223   1              DS12887_Init();
+ 224   1              ADCInit();
+ 225   1      
+ 226   1              WDT_CONTR = 0x3E;
+ 227   1      
+ 228   1              PX0 = 0;
+ 229   1              PX1 = 0;
+ 230   1              PT0 = 1;
+ 231   1      
+ 232   1              P0 = 0xFF;
+ 233   1              BEEP = 1;
+ 234   1      
+ 235   1      
+ 236   1              is24 = IapReadByte(0);
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 5   
+
+ 237   1              enableBEEP = IapReadByte(1);
+ 238   1              enableAlarm = IapReadByte(512);
+ 239   1              Alarm_HH = IapReadByte(513);
+ 240   1              Alarm_MM = IapReadByte(514);
+ 241   1      
+ 242   1              for (i=0; i<30; i++)
+ 243   1              {
+ 244   2                      HC595_DATA = 1;
+ 245   2                      HC595_SHCP = 0;
+ 246   2                      HC595_SHCP = 1; 
+ 247   2              }
+ 248   1      
+ 249   1              HC595_STCP = 0;
+ 250   1              HC595_STCP = 1;
+ 251   1              
+ 252   1              
+ 253   1              EA = 1;
+ 254   1      
+ 255   1      
+ 256   1              while (1)
+ 257   1              {
+ 258   2                      //Display6(code_num[ADCResult / 10000], code_num[ADCResult % 10000 / 1000], code_num[ADCResult % 1000 /1
+             -00], code_num[ADCResult % 100 /10], code_num[ADCResult % 10], code_small_dot, 0);
+ 259   2                      //Delayx10ms(255); 
+ 260   2                      
+ 261   2      
+ 262   2                      WDT_CONTR = 0x3E;
+ 263   2                      if (menu2 == 0 &&  menu1 == 0) ADC_CONTR = 0xEF; else { brightness = 2; }
+ 264   2                      HH = DS12887_Read(DS_HOR) & 0x7F;
+ 265   2                      HH = (HH >> 4) * 10 + (HH & 0x0F);
+ 266   2                      MM = DS12887_Read(DS_MIN);
+ 267   2      
+ 268   2      
+ 269   2                      if (menu1 == 0 && menu2 == 0)
+ 270   2                      {       
+ 271   3                              if ((enableAlarm == 1) && (HH == Alarm_HH) && (BCD_DEC(MM) == Alarm_MM)) BEEP = 0;
+ 272   3                              if (!is24)
+ 273   3                              {
+ 274   4                                      
+ 275   4                                      if (HH >= 12)
+ 276   4                                      {
+ 277   5                                              Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_1, code_num[MM >> 4], 
+             -code_num[MM & 0x0F],0);
+ 278   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 279   5                                              Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_2, code_num[MM >> 4], 
+             -code_num[MM & 0x0F],0);
+ 280   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 281   5                                              Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_3, code_num[MM >> 4], 
+             -code_num[MM & 0x0F],0);
+ 282   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 283   5                                              Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_2, code_num[MM >> 4], 
+             -code_num[MM & 0x0F],0);
+ 284   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 285   5                                              Display6(code_pp, code_num[(HH - 12) / 10], code_num[(HH - 12) % 10], code_dot_1, code_num[MM >> 4], 
+             -code_num[MM & 0x0F],0);
+ 286   5                                              BEEP = 1;
+ 287   5                                      
+ 288   5                                      } else {
+ 289   5      
+ 290   5                                              Display6(code_aa, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 
+             -0x0F],0);
+ 291   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 6   
+
+ 292   5                                              Display6(code_aa, code_num[HH / 10], code_num[HH % 10], code_dot_2, code_num[MM >> 4], code_num[MM & 
+             -0x0F],0);
+ 293   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 294   5                                              Display6(code_aa, code_num[HH / 10], code_num[HH % 10], code_dot_3, code_num[MM >> 4], code_num[MM & 
+             -0x0F],0);
+ 295   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 296   5                                              Display6(code_aa, code_num[HH / 10], code_num[HH % 10], code_dot_2, code_num[MM >> 4], code_num[MM & 
+             -0x0F],0);
+ 297   5                                              if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 298   5                                              Display6(code_aa, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM & 
+             -0x0F],0);
+ 299   5                                      }
+ 300   4                              } else {
+ 301   4                                      Display6(code_dark, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM &
+             - 0x0F],0);
+ 302   4                                      if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 303   4                                      Display6(code_dark, code_num[HH / 10], code_num[HH % 10], code_dot_2, code_num[MM >> 4], code_num[MM &
+             - 0x0F],0);
+ 304   4                                      if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 305   4                                      Display6(code_dark, code_num[HH / 10], code_num[HH % 10], code_dot_3, code_num[MM >> 4], code_num[MM &
+             - 0x0F],0);
+ 306   4                                      if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 307   4                                      Display6(code_dark, code_num[HH / 10], code_num[HH % 10], code_dot_2, code_num[MM >> 4], code_num[MM &
+             - 0x0F],0);
+ 308   4                                      if (brightness == 0) Delayx10ms(2); else Delayx10ms(5);
+ 309   4                                      Display6(code_dark, code_num[HH / 10], code_num[HH % 10], code_dot_1, code_num[MM >> 4], code_num[MM &
+             - 0x0F],0);        
+ 310   4                              }
+ 311   3                              BEEP = 1;
+ 312   3      
+ 313   3                      } 
+ 314   2                      else if (menu1)
+ 315   2                      {       
+ 316   3                              if (menu1 != m1)
+ 317   3                              {
+ 318   4                                      if (enableBEEP) BEEP = 0;
+ 319   4                                      Delayx10ms(10);
+ 320   4                                      m1 = menu1;
+ 321   4                                      mode++; dynamic = 1;
+ 322   4                                      BEEP = 1;
+ 323   4                              } else {
+ 324   4                                      Delayx10ms(5);
+ 325   4                              }
+ 326   3      
+ 327   3                              //设置星期
+ 328   3                              YYYY = BCD_DEC(DS12887_Read(DS_Y_S)) * 100 + BCD_DEC(DS12887_Read(DS_YER));
+ 329   3                              MON = BCD_DEC(DS12887_Read(DS_MON));
+ 330   3                              DAY = BCD_DEC(DS12887_Read(DS_DAY));
+ 331   3      
+ 332   3                              WEEK = getWeek(YYYY, MON, DAY);
+ 333   3                              DS12887_Write(DS_WEK, DEC_BCD(WEEK));
+ 334   3      
+ 335   3                              //首先设置时间：
+ 336   3                              if (mode == 1) //小时
+ 337   3                              {
+ 338   4                                      HH = BCD_DEC(DS12887_Read(DS_HOR));
+ 339   4                                      Display6(code_H, code_H, code_colon, code_dark, code_num[HH / 10], code_num[HH % 10], dynamic);
+ 340   4                                      dynamic = 0;
+ 341   4                                      Delay10ms();
+ 342   4                                      if (menu2 != m2)
+ 343   4                                      {
+ 344   5                                              if (enableBEEP) BEEP = 0;
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 7   
+
+ 345   5                                          Delayx10ms(7);
+ 346   5                                              m2 = menu2;
+ 347   5                                              if (++HH > 23) HH = 0;
+ 348   5                                              DS12887_Write(DS_HOR, DEC_BCD(HH));
+ 349   5                                              BEEP = 1;       
+ 350   5                                      }       
+ 351   4                              }
+ 352   3                              if (mode == 2) //分钟
+ 353   3                              {
+ 354   4                                      MM = BCD_DEC(DS12887_Read(DS_MIN));
+ 355   4      
+ 356   4                                      Display6(code_M, code_M, code_colon, code_dark, code_num[MM / 10], code_num[MM % 10], dynamic);
+ 357   4                                      dynamic = 0;
+ 358   4                                      Delay10ms();
+ 359   4                                      if (menu2 != m2)
+ 360   4                                      {
+ 361   5                                              if (enableBEEP) BEEP = 0;
+ 362   5                                              Delayx10ms(7);
+ 363   5                                              m2 = menu2;
+ 364   5                                              if (++MM > 59) MM = 0;
+ 365   5                                              DS12887_Write(DS_MIN, DEC_BCD(MM));     
+ 366   5                                              BEEP = 1;
+ 367   5                                                      
+ 368   5                                      }
+ 369   4                              }
+ 370   3                              if (mode == 3) //秒
+ 371   3                              {
+ 372   4                                      SS = BCD_DEC(DS12887_Read(DS_SEC));
+ 373   4      
+ 374   4                                      Display6(code_S, code_S, code_colon, code_dark, code_num[SS / 10], code_num[SS % 10], dynamic);
+ 375   4                                      dynamic = 0;
+ 376   4                                      Delay10ms();
+ 377   4                                      if (menu2 != m2)
+ 378   4                                      {
+ 379   5                                              if (enableBEEP) BEEP = 0;
+ 380   5                                              Delayx10ms(7);
+ 381   5                                              m2 = menu2;     
+ 382   5                                              if (SS > 0) SS--;
+ 383   5                                              DS12887_Write(DS_SEC, DEC_BCD(SS));
+ 384   5                                              BEEP = 1;       
+ 385   5                                      }       
+ 386   4                              }
+ 387   3      
+ 388   3                              if (mode == 4) //年
+ 389   3                              {
+ 390   4                                      Display6(code_Y, code_colon, code_num[YYYY / 1000], code_num[YYYY / 100 % 10], code_num[YYYY / 10 % 10
+             -], code_num[YYYY % 10], dynamic);
+ 391   4                                      dynamic = 0;
+ 392   4                                      Delay10ms();
+ 393   4                                      if (menu2 != m2)
+ 394   4                                      {
+ 395   5                                              if (enableBEEP) BEEP = 0;
+ 396   5                                              Delayx10ms(7);
+ 397   5                                              m2 = menu2;     
+ 398   5                                              if (++YYYY > 2100) YYYY = 2013;
+ 399   5                                              if (DAY > getMaxDay(YYYY, MON)) DAY = 1;
+ 400   5                                              DS12887_Write(DS_Y_S, DEC_BCD((YYYY / 100)));
+ 401   5                                              DS12887_Write(DS_YER, DEC_BCD((YYYY % 100)));
+ 402   5                                              DS12887_Write(DS_DAY, DEC_BCD(DAY));
+ 403   5                                              BEEP = 1;       
+ 404   5                                      }       
+ 405   4                              }
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 8   
+
+ 406   3      
+ 407   3                              if (mode == 5) //月
+ 408   3                              {
+ 409   4      
+ 410   4                                      Display6(code_M, code_oo, code_nn, code_colon, code_num[MON / 10], code_num[MON % 10], dynamic);
+ 411   4                                      dynamic = 0;
+ 412   4                                      Delay10ms();
+ 413   4                                      if (menu2 != m2)
+ 414   4                                      {
+ 415   5                                              if (enableBEEP) BEEP = 0;
+ 416   5                                          Delayx10ms(7);
+ 417   5                                              m2 = menu2;     
+ 418   5                                              if (++MON > 12) MON = 1;
+ 419   5                                              if (DAY > getMaxDay(YYYY, MON)) DAY = 1;
+ 420   5                                              DS12887_Write(DS_MON, DEC_BCD(MON));
+ 421   5                                              DS12887_Write(DS_DAY, DEC_BCD(DAY));
+ 422   5                                              BEEP = 1;       
+ 423   5                                      }       
+ 424   4                              }
+ 425   3      
+ 426   3                              if (mode == 6) //日
+ 427   3                              {
+ 428   4                                      Display6(code_D, code_aa , code_yy, code_colon, code_num[DAY / 10], code_num[DAY % 10], dynamic);
+ 429   4                                      dynamic = 0;
+ 430   4                                      Delay10ms();
+ 431   4                                      if (menu2 != m2)
+ 432   4                                      {
+ 433   5                                              if (enableBEEP) BEEP = 0;
+ 434   5                                              Delayx10ms(7);
+ 435   5                                              m2 = menu2;     
+ 436   5                                              if (++DAY > getMaxDay(YYYY, MON)) DAY = 1;
+ 437   5                                              DS12887_Write(DS_DAY, DEC_BCD(DAY));
+ 438   5                                              BEEP = 1;       
+ 439   5                                      }       
+ 440   4                              }
+ 441   3      
+ 442   3                              if (mode == 7) //12/24
+ 443   3                              {
+ 444   4                                      if (is24)
+ 445   4                                      {
+ 446   5                                              Display6(code_dark, code_dark, code_dark, code_num[2], code_num[4], code_H, dynamic);
+ 447   5                                      } else {
+ 448   5                                              Display6(code_dark, code_dark, code_dark, code_num[1], code_num[2], code_H, dynamic);
+ 449   5                                      }
+ 450   4                                      dynamic = 0;
+ 451   4                                      Delay10ms();
+ 452   4                                      if (menu2 != m2)
+ 453   4                                      {
+ 454   5                                              if (enableBEEP) BEEP = 0;
+ 455   5                                              Delayx10ms(7);
+ 456   5                                              m2 = menu2;     
+ 457   5                                              if(is24) is24 = 0; else is24 = 1;
+ 458   5                                              IapEraseSector(0);
+ 459   5                                              IapProgramByte(0, is24);
+ 460   5                                              IapProgramByte(1, enableBEEP);                                  
+ 461   5                                              BEEP = 1;       
+ 462   5                                      }       
+ 463   4                              }
+ 464   3      
+ 465   3                              if (mode == 8) //Enable Beep
+ 466   3                              {
+ 467   4                                      if (enableBEEP)
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 9   
+
+ 468   4                                      {
+ 469   5                                              Display6(code_B, code_E, code_E, code_P, code_colon, code_num[1], dynamic);
+ 470   5                                      } else {
+ 471   5                                              Display6(code_B, code_E, code_E, code_P, code_colon, code_num[0], dynamic);
+ 472   5                                      }
+ 473   4                                      dynamic = 0;
+ 474   4                                      Delay10ms();
+ 475   4                                      if (menu2 != m2)
+ 476   4                                      {
+ 477   5                                              if (enableBEEP) BEEP = 0;
+ 478   5                                              Delayx10ms(7);
+ 479   5                                              m2 = menu2;     
+ 480   5                                              if(enableBEEP) enableBEEP = 0; else enableBEEP = 1;
+ 481   5                                              IapEraseSector(0);
+ 482   5                                              IapProgramByte(0, is24);
+ 483   5                                              IapProgramByte(1, enableBEEP);                                  
+ 484   5                                              BEEP = 1;       
+ 485   5                                      }       
+ 486   4                              }
+ 487   3      
+ 488   3                              if (mode == 9)
+ 489   3                              {
+ 490   4                                      if (enableAlarm)
+ 491   4                                      {
+ 492   5                                              Display6(code_A, code_L, code_R, code_M, code_colon, code_num[1], dynamic);
+ 493   5                                      } else {
+ 494   5                                              Display6(code_A, code_L, code_R, code_M, code_colon, code_num[0], dynamic);                                                                                                                                                        
+ 495   5                                      }
+ 496   4                                      dynamic = 0;
+ 497   4                                      Delay10ms();
+ 498   4                                      if (menu2 != m2)
+ 499   4                                      {
+ 500   5                                              if (enableBEEP) BEEP = 0;
+ 501   5                                              Delayx10ms(7);
+ 502   5                                              m2 = menu2;     
+ 503   5                                              if(enableAlarm) enableAlarm = 0; else enableAlarm = 1;
+ 504   5                                              IapEraseSector(512);
+ 505   5                                              IapProgramByte(512, enableAlarm);
+ 506   5                                              IapProgramByte(513, Alarm_HH);
+ 507   5                                              IapProgramByte(514, Alarm_MM);                                  
+ 508   5                                              BEEP = 1;
+ 509   5                                      }
+ 510   4                              }
+ 511   3                              
+ 512   3                              if (mode == 10)
+ 513   3                              {
+ 514   4                                      Display6(code_A, code_H, code_H, code_colon, code_num[Alarm_HH / 10], code_num[Alarm_HH % 10], dynamic
+             -);
+ 515   4                                      dynamic = 0;
+ 516   4                                      Delay10ms();
+ 517   4                                      if (menu2 != m2)
+ 518   4                                      {
+ 519   5                                              if (enableBEEP) BEEP = 0;
+ 520   5                                              Delayx10ms(7);
+ 521   5                                              m2 = menu2;
+ 522   5                                              if (++Alarm_HH > 23) Alarm_HH = 0;
+ 523   5                                              IapEraseSector(512);
+ 524   5                                              IapProgramByte(512, enableAlarm);
+ 525   5                                              IapProgramByte(513, Alarm_HH);
+ 526   5                                              IapProgramByte(514, Alarm_MM);
+ 527   5                                              BEEP = 1;       
+ 528   5      
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 10  
+
+ 529   5                                      } 
+ 530   4                              }
+ 531   3      
+ 532   3                              if (mode == 11)
+ 533   3                              {
+ 534   4                                      Display6(code_A, code_M, code_M, code_colon, code_num[Alarm_MM / 10], code_num[Alarm_MM % 10], dynamic
+             -);
+ 535   4                                      dynamic = 0;
+ 536   4                                      Delay10ms();
+ 537   4                                      if (menu2 != m2)
+ 538   4                                      {
+ 539   5                                              if (enableBEEP) BEEP = 0;
+ 540   5                                              Delayx10ms(7);
+ 541   5                                              m2 = menu2;
+ 542   5                                              if (++Alarm_MM > 59) Alarm_MM = 0;
+ 543   5                                              IapEraseSector(512);
+ 544   5                                              IapProgramByte(512, enableAlarm);
+ 545   5                                              IapProgramByte(513, Alarm_HH);
+ 546   5                                              IapProgramByte(514, Alarm_MM);
+ 547   5                                              BEEP = 1;       
+ 548   5      
+ 549   5                                      } 
+ 550   4                              }
+ 551   3      
+ 552   3                              if (mode > 11) 
+ 553   3                              {
+ 554   4                                      menu1 = 0;
+ 555   4                                      menu2 = 0;
+ 556   4                                      m1 = 0;
+ 557   4                                      m2 = 0;
+ 558   4                                      mode = 0;
+ 559   4                              }
+ 560   3      
+ 561   3      
+ 562   3                                                      
+ 563   3                      } else if (menu2)
+ 564   2                      {
+ 565   3                              
+ 566   3      
+ 567   3                              if (menu2 != m2)
+ 568   3                              {
+ 569   4                                      if (enableBEEP) BEEP = 0;
+ 570   4                                      Delayx10ms(10);
+ 571   4                                      m2 = menu2;
+ 572   4                                      mode++; dynamic = 1;
+ 573   4                                      BEEP = 1;
+ 574   4                              };
+ 575   3      
+ 576   3      
+ 577   3                              YYYY = BCD_DEC(DS12887_Read(DS_Y_S)) * 100 + BCD_DEC(DS12887_Read(DS_YER));
+ 578   3                              MON = BCD_DEC(DS12887_Read(DS_MON));
+ 579   3                              DAY = BCD_DEC(DS12887_Read(DS_DAY));
+ 580   3                              WEEK = BCD_DEC(DS12887_Read(DS_WEK));
+ 581   3      
+ 582   3                              if (mode == 1)
+ 583   3                              {
+ 584   4                                      //温度
+ 585   4                                      
+ 586   4                                      w = DS18B20_Read();
+ 587   4                                      if (!ww || w < ww || (w % 1000 - ww % 1000 <= 20) || ww % 1000 > 400) ww = w;
+ 588   4      
+ 589   4                                      Display6(code_dark, code_num[(ww % 1000) / 100], code_num[(ww % 100) / 10], code_small_dot, code_num[w
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 11  
+
+             -w % 10], code_celsius, dynamic);
+ 590   4                                      dynamic = 0;
+ 591   4                                      Delayx10ms(10);
+ 592   4                              }
+ 593   3      
+ 594   3                              if (mode == 2)
+ 595   3                              {
+ 596   4                                      //WEEK
+ 597   4                                      switch(WEEK)
+ 598   4                                      {
+ 599   5                                              case 1:Display6(code_dark, code_dark, code_M, code_oo, code_nn, code_small_dot, dynamic); break;        
+ 600   5                                              case 2:Display6(code_dark, code_T, code_uu, code_ee, code_ss, code_small_dot, dynamic); break;  
+ 601   5                                              case 3:Display6(code_dark, code_dark, code_W, code_ee, code_dd, code_small_dot, dynamic); break;        
+ 602   5                                              case 4:Display6(code_dark, code_T, code_hh, code_uu, code_rr, code_small_dot, dynamic); break;  
+ 603   5                                              case 5:Display6(code_dark, code_dark, code_F, code_rr, code_ii, code_small_dot, dynamic); break;        
+ 604   5                                              case 6:Display6(code_dark, code_dark, code_S, code_aa, code_tt, code_small_dot, dynamic); break;        
+ 605   5                                              case 0:Display6(code_dark, code_dark, code_S, code_uu, code_nn, code_small_dot, dynamic); break;        
+ 606   5                                      }
+ 607   4                                      
+ 608   4                                      dynamic = 0;
+ 609   4                                      Delayx10ms(4);
+ 610   4                              }
+ 611   3      
+ 612   3                              if (mode == 3)
+ 613   3                              {
+ 614   4                                      //月日
+ 615   4                                      Display6(code_dark, code_num[MON / 10], code_num[MON % 10], code_dash, code_num[DAY / 10], code_num[DA
+             -Y % 10], dynamic);
+ 616   4                                      dynamic = 0;
+ 617   4                                      Delayx10ms(4);
+ 618   4      
+ 619   4                              }
+ 620   3      
+ 621   3                              if (mode == 4)
+ 622   3                              {
+ 623   4                                      //年
+ 624   4                                      Display6(code_dark, code_dark, code_num[YYYY / 1000], code_num[YYYY / 100 % 10], code_num[YYYY / 10 % 
+             -10], code_num[YYYY % 10], dynamic);
+ 625   4                                      dynamic = 0;
+ 626   4                                      Delayx10ms(4);
+ 627   4                              }
+ 628   3      
+ 629   3      
+ 630   3      
+ 631   3                              if (mode > 4) 
+ 632   3                              {
+ 633   4                                      menu1 = 0;
+ 634   4                                      menu2 = 0;
+ 635   4                                      m1 = 0;
+ 636   4                                      m2 = 0;
+ 637   4                                      mode = 0;
+ 638   4                                      ww = 0;
+ 639   4                              }
+ 640   3                              
+ 641   3                      }  
+ 642   2      
+ 643   2      
+ 644   2                      for (i=0; i<=25; i++)
+ 645   2                      {
+ 646   3                              if (brightness == 0) Delayx10ms(1); else Delayx10ms(2);
+ 647   3                              WDT_CONTR = 0x3E;
+ 648   3                              if (menu1 || menu2) break;
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 12  
+
+ 649   3                      }
+ 650   2                              
+ 651   2              }
+ 652   1      }
+ 653          
+ 654          void int0_interrupt (void) interrupt 0
+ 655          {
+ 656   1              busy = 1;
+ 657   1              if (++menu1 > 200) menu1 = 1;
+ 658   1              busy = 0;
+ 659   1              
+ 660   1      }
+ 661          
+ 662          void int1_interrupt (void) interrupt 2
+ 663          {
+ 664   1          busy = 1;
+ 665   1              if (++menu2 > 200) menu2 = 1;
+ 666   1              busy = 0;       
+ 667   1      }
+ 668          
+ 669          void time0_interrupt (void) interrupt 1 
+ 670          {
+ 671   1      
+ 672   1              unsigned char i;
+ 673   1              P0 = 0xFF;
+ 674   1      
+ 675   1              for (i=0; i<30; i++)
+ 676   1              {
+ 677   2                      HC595_DATA = ((line_data[line-1] << i) & 0x80000000) == 0x80000000;     
+ 678   2                      HC595_SHCP = 0;
+ 679   2                      HC595_SHCP = 1; 
+ 680   2              }
+ 681   1         
+ 682   1              HC595_STCP = 0;
+ 683   1              HC595_STCP = 1;
+ 684   1      
+ 685   1          switch(line)
+ 686   1              {
+ 687   2                      case 1:H1=0; break;
+ 688   2                      case 2:H2=0; break;
+ 689   2                      case 3:H3=0; break;
+ 690   2                      case 4:H4=0; break;
+ 691   2                      case 5:H5=0; break;
+ 692   2                      case 6:H6=0; break;
+ 693   2                      case 7:H7=0; break;
+ 694   2              }
+ 695   1              if (++line == 8) line = 1;
+ 696   1      
+ 697   1              if (brightness == 0)
+ 698   1              {
+ 699   2                      TL0 = 0xD7;     
+ 700   2                      TH0 = 0xFD;
+ 701   2              } else if (brightness == 1)
+ 702   1              {
+ 703   2                      TL0 = 0x33;     
+ 704   2                      TH0 = 0xE3;
+ 705   2              } else// if (brightness == 2)
+ 706   1              {
+ 707   2                      TL0 = 0x00;     
+ 708   2                      TH0 = 0xB8;
+ 709   2              }
+ 710   1      
+C51 COMPILER V9.00   MAIN                                                                  02/11/2013 23:23:58 PAGE 13  
+
+ 711   1      }
+ 712          
+ 713          void ADC_interrupt (void) interrupt 5
+ 714          {
+ 715   1          unsigned int ADCResult;
+ 716   1              ADC_CONTR = 0x0;        
+ 717   1              _nop_(); _nop_();_nop_();_nop_();_nop_();_nop_();
+ 718   1          ADCResult = ADC_RES * 256 + ADC_RESL;
+ 719   1          if (ADCResult > 950) brightness = 0;
+ 720   1              else if (ADCResult > 800) brightness = 1; else brightness = 2;
+ 721   1      
+ 722   1              //while(1);     
+ 723   1      
+ 724   1      }
+ 725          
+ 726          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   7473    ----
+   CONSTANT SIZE    =    392    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     33      66
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
