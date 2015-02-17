@@ -1,11 +1,17 @@
-NixieTube Clock
-===============
+Project Clock
+================
+
+1. LED Matrix Clock
+
+![LED-Matrix-Clock](https://lh5.googleusercontent.com/-VUKTiDAuinA/UQ-3prWEOsI/AAAAAAAAEDA/QYPlzFUnUw4/s0/DSC_0049.JPG)
+
+2. NixieTube Clock
 
 What's NixieTube? <http://en.wikipedia.org/wiki/Nixie_tube>
 
 ###1. IN-14
 
-IN-14 folder contains a 6 digits nixie tube clock design. 
+IN-14 folder contains a 6 digits nixie tube clock design.
 
 ![IN-14](https://martianz.cn/nixietube/1.jpg)
 
